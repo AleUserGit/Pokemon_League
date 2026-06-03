@@ -47,7 +47,6 @@ def registrar_pokemon(lst_pokemones):
 
     lst_pokemones.append(nombre, tipo, nivel, poder, entrenador, victorias, estado)
 
-
 #Funcion 2 -- eliminar
 #Funcion 3 -- modificar
 #Funcion 4 -- visualizar
