@@ -5,6 +5,10 @@
 
 # Listas paralelas
 
+# Usar LISTAS DE LISTAS, no listas paralelas
+# O las funciones van a ser imposibles
+# Actualizar las categorías
+
 lst_nombre = []
 lst_tipo = []
 lst_vida = []
