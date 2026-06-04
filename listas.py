@@ -28,25 +28,25 @@ lst_pokemones = [
     ["Machop", "Lucha", 70, 80, 50, 35],
 
     ["Geodude", "Roca", 40, 80, 100, 20],
-    ["Gastly", "Fantasma", 30, 35, 30, 80],
+    ["Gastly", "Fantasma", 20, 35, 30, 80],
 
-    ["Onix", "Roca", 35, 45, 160, 70],
+    ["Onix", "Roca", 25, 45, 160, 70],
 
-    ["Cubone", "Roca", 50, 50, 95, 35],
+    ["Cubone", "Roca", 40, 50, 95, 35],
 
-    ["Magikarp", "Agua", 20, 10, 55, 80],
-    ["Gyarados", "Agua", 95, 125, 79, 81],
+    ["Magikarp", "Agua", 10, 10, 55, 80],
+    ["Gyarados", "Agua", 85, 125, 79, 81],
 
-    ["Snorlax", "Normal", 160, 110, 65, 30],
+    ["Snorlax", "Normal", 90, 110, 65, 30],
 
-    ["Articuno", "Agua", 90, 85, 100, 85],
-    ["Zapdos", "Eléctrico", 90, 90, 85, 100],
-    ["Moltres", "Fuego", 90, 100, 90, 90],
+    ["Articuno", "Agua", 80, 85, 100, 85],
+    ["Zapdos", "Eléctrico", 80, 90, 85, 100],
+    ["Moltres", "Fuego", 80, 100, 90, 90],
 
-    ["Dratini", "Dragon", 41, 64, 45, 50],
-    ["Dragonair", "Dragon", 61, 84, 65, 70],
-    ["Dragonite", "Dragon", 91, 134, 95, 80],
+    ["Dratini", "Dragon", 31, 64, 45, 50],
+    ["Dragonair", "Dragon", 51, 84, 65, 70],
+    ["Dragonite", "Dragon", 81, 134, 95, 80],
 
-    ["Mewtwo", "Psíquico", 106, 110, 90, 130],
-    ["Mew", "Psíquico", 100, 100, 100, 100]
+    ["Mewtwo", "Psíquico", 66, 110, 90, 130],
+    ["Mew", "Psíquico", 67, 100, 100, 100]
 ]
