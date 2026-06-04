@@ -2,3 +2,4 @@
 # Llamar todas las funciones al main antes de arrancar
 
 
+print("matate")
