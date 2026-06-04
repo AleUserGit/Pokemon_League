@@ -42,7 +42,25 @@ def registrar_pokemon(lst_pokemones):
         print("Error: nombre no válido")
         entrenador = input("Ingrese nombre del entrenador: ").strip()
         tiene_letras = any(l.isalpha() for l in entrenador)
-        
+    
+    victoria_valida = False
+    while not victoria_valida:
+        try:
+            victorias = int(input("Ingrese el número de victorias del Pokemón: ")).strip()
+            if victorias >= 0:
+                victoria_valida = True
+            else:
+                print("Error: valor no válido")
+        except ValueError:
+            print("Error: no es un número entero")
+
+    estados_posibles = ["Disponible", "Entrenamiento", "Lesionado", "Liberado"]
+    estado = input("Ingrese el estado del Pokemón: ").strip()
+    while estado not in estado:
+        print("Error: estado no válido")
+        estado = input("Ingrese el estado del Pokemón: ").strip()
+
+
 
 
 
