@@ -6,7 +6,7 @@
 # lst_pokemones([nombre, tipo, nivel, poder, entrenador, victorias, estado])
 
 lst_pokemones = [
-    ["Bulbasaur", "Planta", 45, 49, 49, 45],
+    ["Bulbasaur", "Planta", 35, 49, 49, 45],
     ["Ivysaur", "Planta", 60, 62, 63, 60],
     ["Venusaur", "Planta", 80, 82, 83, 80],
 
@@ -14,9 +14,9 @@ lst_pokemones = [
     ["Charmeleon", "Fuego", 58, 64, 58, 80],
     ["Charizard", "Fuego", 78, 84, 78, 100],
 
-    ["Squirtle", "Agua", 44, 48, 65, 43],
-    ["Wartortle", "Agua", 59, 63, 80, 58],
-    ["Blastoise", "Agua", 79, 83, 100, 78],
+    ["Squirtle", "Agua", 34, 48, 65, 43],
+    ["Wartortle", "Agua", 49, 63, 80, 58],
+    ["Blastoise", "Agua", 29, 83, 100, 78],
 
     ["Pikachu", "Eléctrico", 35, 55, 40, 90],
     ["Raichu", "Eléctrico", 60, 90, 55, 110],
