@@ -1,3 +1,29 @@
+#las hermosas funciones de lo y memi
+def opciones_menu():
+    print("1. Registrar Pokémon (Alta)")
+    print("2. Eliminar Pokémon (Baja)")
+    print("3. Modificar Pokémon (Modificación)")
+    print("4. Informe General – Visualización de los datos")
+    print("5. Salir")
+    
+def ingresar_opcion():
+    opcion_valida = False
+    while not opcion_valida:
+        try:
+            opcion= int(input("Seleccione una opcion: ").strip())
+            while opcion < 1 or opcion > 5:
+                print("La seleccion es invalida. Intentelo de nuevo: ")
+                opcion= int(input("Seleccione otra opcion: ").strip())
+            if opcion >= 1 or opcion <= 5:
+                opcion_valida = True
+        except ValueError:
+            print("Error: no es un número entero")
+        
+    return opcion
+
+
+
+
 #Funcion 1 -- registrar pokemones
 
 def registrar_pokemon(lst_pokemones):
@@ -7,6 +33,7 @@ def registrar_pokemon(lst_pokemones):
         nombre = input("Ingrese nombre del Pokemón").strip().capitalize()
     
     tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
+    print ("Los tipos disponibles son:", tipos)
     tipo = input("Ingrese el tipo del Pokemón: ").strip().capitalize()
     while tipo not in tipos:
         print("Error: tipo no válido")
@@ -53,6 +80,7 @@ def registrar_pokemon(lst_pokemones):
             print("Error: no es un número entero")
 
     estado_valido = ["Disponible", "Entrenamiento", "Lesionado", "Liberado"]
+    print("Los estados disponibles son:", estado_valido)
     estado = input("Ingrese el estado del Pokemón: ").strip().capitalize()
     while estado not in estado_valido:
         print("Error: estado no válido")
