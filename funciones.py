@@ -1,4 +1,4 @@
-#las hermosas funciones de lo y memi
+#las dudosas funciones de lo y memi
 def opciones_menu():
     print("1. Registrar Pokémon (Alta)")
     print("2. Eliminar Pokémon (Baja)")
