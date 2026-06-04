@@ -6,47 +6,47 @@
 # lst_pokemones([nombre, tipo, nivel, poder, entrenador, victorias, estado])
 
 lst_pokemones = [
-    ["Bulbasaur", "Planta", 45, 1880, 49, 45],
-    ["Ivysaur", "Planta", 60, 2450, 63, 60],
-    ["Venusaur", "Planta", 80, 3250, 83, 80],
+    ["Bulbasaur", "Planta", 45, 1880, "Ash", 45],
+    ["Ivysaur", "Planta", 60, 2450, "Gary", 60],
+    ["Venusaur", "Planta", 80, 3250, "Profesor Oak", 80],
 
-    ["Charmander", "Fuego", 39, 1990, 43, 65],
-    ["Charmeleon", "Fuego", 58, 2600, 58, 80],
-    ["Charizard", "Fuego", 78, 3400, 78, 100],
+    ["Charmander", "Fuego", 39, 1990, "Ash", 65],
+    ["Charmeleon", "Fuego", 58, 2600, "Ash", 80],
+    ["Charizard", "Fuego", 78, 3400, "Ash", 100],
 
-    ["Squirtle", "Agua", 44, 2000, 65, 43],
-    ["Wartortle", "Agua", 59, 2600, 80, 58],
-    ["Blastoise", "Agua", 79, 3400, 100, 78],
+    ["Squirtle", "Agua", 44, 2000, "Misty", 43],
+    ["Wartortle", "Agua", 59, 2600, "Tracey", 58],
+    ["Blastoise", "Agua", 79, 3400, "Blue", 78],
 
-    ["Pikachu", "Eléctrico", 35, 2200, 40, 90],
-    ["Raichu", "Eléctrico", 60, 3150, 55, 110],
+    ["Pikachu", "Eléctrico", 35, 2200, "Ash", 90],
+    ["Raichu", "Eléctrico", 60, 3150, "Surge", 110],
 
-    ["Jigglypuff", "Normal", 90, 1750, 20, 20],
-    ["Meowth", "Normal", 40, 2100, 35, 90],
+    ["Jigglypuff", "Normal", 90, 1750, "Dawn", 20],
+    ["Meowth", "Normal", 40, 2100, "Jessie", 90],
 
-    ["Psyduck", "Agua", 50, 2050, 48, 55],
-    ["Machop", "Lucha", 70, 2350, 50, 35],
+    ["Psyduck", "Agua", 50, 2050, "Misty", 55],
+    ["Machop", "Lucha", 70, 2350, "Bruno", 35],
 
-    ["Geodude", "Roca", 40, 2400, 100, 20],
-    ["Gastly", "Fantasma", 20, 1750, 30, 80],
+    ["Geodude", "Roca", 40, 2400, "Brock", 20],
+    ["Gastly", "Fantasma", 20, 1750, "Brock", 80],
 
-    ["Onix", "Roca", 25, 3100, 160, 70],
+    ["Onix", "Roca", 25, 3100, "James", 70],
 
-    ["Cubone", "Roca", 40, 2300, 95, 35],
+    ["Cubone", "Roca", 40, 2300, "James", 35],
 
-    ["Magikarp", "Agua", 10, 1650, 55, 80],
-    ["Gyarados", "Agua", 85, 3800, 79, 81],
+    ["Magikarp", "Agua", 10, 1650, "Brock", 80],
+    ["Gyarados", "Agua", 85, 3800, "Lance", 81],
 
-    ["Snorlax", "Normal", 90, 3650, 65, 30],
+    ["Snorlax", "Normal", 90, 3650, "Ash", 30],
 
-    ["Articuno", "Agua", 80, 3600, 100, 85],
-    ["Zapdos", "Eléctrico", 80, 3650, 85, 100],
-    ["Moltres", "Fuego", 80, 3700, 90, 90],
+    ["Articuno", "Agua", 80, 3600, "Nolan", 85],
+    ["Zapdos", "Eléctrico", 80, 3650, "Blue", 100],
+    ["Moltres", "Fuego", 80, 3700, "Blaine", 90],
 
-    ["Dratini", "Dragon", 31, 2000, 45, 50],
-    ["Dragonair", "Dragon", 51, 2800, 65, 70],
-    ["Dragonite", "Dragon", 81, 4000, 95, 80],
+    ["Dratini", "Dragon", 31, 2000, "Clair", 50],
+    ["Dragonair", "Dragon", 51, 2800, "Clair", 70],
+    ["Dragonite", "Dragon", 81, 4000, "Lance", 80],
 
-    ["Mewtwo", "Psíquico", 66, 4360, 90, 130],
-    ["Mew", "Psíquico", 67, 4000, 100, 100]
+    ["Mewtwo", "Psíquico", 66, 4360, "Gasspy", 130],
+    ["Mew", "Psíquico", 67, 4000, "Profesor Oak", 100]
 ]
