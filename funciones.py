@@ -42,6 +42,7 @@ def registrar_pokemon(lst_pokemones):
         print("Error: nombre no válido")
         entrenador = input("Ingrese nombre del entrenador: ").strip()
         tiene_letras = any(l.isalpha() for l in entrenador)
+        
 
 
 
