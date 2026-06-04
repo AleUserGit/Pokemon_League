@@ -6,7 +6,7 @@
 # lst_pokemones([nombre, tipo, nivel, poder, entrenador, victorias, estado])
 
 lst_pokemones = [
-    ["Bulbasaur", "Planta", 45, 49, 49, 45],
+    ["Bulbasaur", "Planta", 35, 49, 49, 45],
     ["Ivysaur", "Planta", 60, 62, 63, 60],
     ["Venusaur", "Planta", 80, 82, 83, 80],
 
@@ -14,9 +14,9 @@ lst_pokemones = [
     ["Charmeleon", "Fuego", 58, 64, 58, 80],
     ["Charizard", "Fuego", 78, 84, 78, 100],
 
-    ["Squirtle", "Agua", 44, 48, 65, 43],
-    ["Wartortle", "Agua", 59, 63, 80, 58],
-    ["Blastoise", "Agua", 79, 83, 100, 78],
+    ["Squirtle", "Agua", 34, 48, 65, 43],
+    ["Wartortle", "Agua", 49, 63, 80, 58],
+    ["Blastoise", "Agua", 29, 83, 100, 78],
 
     ["Pikachu", "Eléctrico", 25, 55, 40, 90],
     ["Raichu", "Eléctrico", 70, 90, 55, 110],
@@ -28,25 +28,25 @@ lst_pokemones = [
     ["Machop", "Lucha", 60, 80, 50, 35],
 
     ["Geodude", "Roca", 30, 80, 100, 20],
-    ["Gastly", "Fantasma", 30, 35, 30, 80],
+    ["Gastly", "Fantasma", 20, 35, 30, 80],
 
-    ["Onix", "Roca", 35, 45, 160, 70],
+    ["Onix", "Roca", 25, 45, 160, 70],
 
-    ["Cubone", "Roca", 50, 50, 95, 35],
+    ["Cubone", "Roca", 40, 50, 95, 35],
 
-    ["Magikarp", "Agua", 20, 10, 55, 80],
-    ["Gyarados", "Agua", 95, 125, 79, 81],
+    ["Magikarp", "Agua", 10, 10, 55, 80],
+    ["Gyarados", "Agua", 85, 125, 79, 81],
 
-    ["Snorlax", "Normal", 160, 110, 65, 30],
+    ["Snorlax", "Normal", 90, 110, 65, 30],
 
-    ["Articuno", "Agua", 90, 85, 100, 85],
-    ["Zapdos", "Eléctrico", 90, 90, 85, 100],
-    ["Moltres", "Fuego", 90, 100, 90, 90],
+    ["Articuno", "Agua", 80, 85, 100, 85],
+    ["Zapdos", "Eléctrico", 80, 90, 85, 100],
+    ["Moltres", "Fuego", 80, 100, 90, 90],
 
-    ["Dratini", "Dragon", 41, 64, 45, 50],
-    ["Dragonair", "Dragon", 61, 84, 65, 70],
-    ["Dragonite", "Dragon", 91, 134, 95, 80],
+    ["Dratini", "Dragon", 31, 64, 45, 50],
+    ["Dragonair", "Dragon", 51, 84, 65, 70],
+    ["Dragonite", "Dragon", 81, 134, 95, 80],
 
-    ["Mewtwo", "Psíquico", 106, 110, 90, 130],
-    ["Mew", "Psíquico", 100, 100, 100, 100]
+    ["Mewtwo", "Psíquico", 66, 110, 90, 130],
+    ["Mew", "Psíquico", 67, 100, 100, 100]
 ]
