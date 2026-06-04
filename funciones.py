@@ -17,7 +17,7 @@ def registrar_pokemon(lst_pokemones):
     while not nivel_valido:
         try:
             nivel = int(input("Ingrese el nivel(1-100) del Pokemón: ")).strip()
-            if 1 <= nivel_valido <= 100:
+            if 1 <= nivel <= 100:
                 nivel_valido = True
             else:
                 print("Error: nivel no válido")
@@ -35,7 +35,6 @@ def registrar_pokemon(lst_pokemones):
         except ValueError:
             print("Error: no es un número entero")
     
-    tiene_letras = False
     entrenador = input("Ingrese nombre del entrenador: ").strip()
     tiene_letras = any(l.isalpha() for l in entrenador)
     while not tiene_letras:
@@ -69,6 +68,8 @@ def registrar_pokemon(lst_pokemones):
 
 
 #Funcion 2 -- eliminar
+
+
 #Funcion 3 -- modificar
 #Funcion 4 -- visualizar
 #Funcion 5 -- salir
