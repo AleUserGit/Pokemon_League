@@ -21,13 +21,13 @@ lst_pokemones = [
     ["Pikachu", "Eléctrico", 35, 55, 40, 90],
     ["Raichu", "Eléctrico", 60, 90, 55, 110],
 
-    ["Jigglypuff", "Normal/Hada", 90, 45, 20, 20],
+    ["Jigglypuff", "Normal", 90, 45, 20, 20],
     ["Meowth", "Normal", 40, 45, 35, 90],
 
     ["Psyduck", "Agua", 50, 52, 48, 55],
     ["Machop", "Lucha", 70, 80, 50, 35],
 
-    ["Geodude", "Roca/Tierra", 40, 80, 100, 20],
+    ["Geodude", "Roca", 40, 80, 100, 20],
     ["Gastly", "Fantasma/Veneno", 30, 35, 30, 80],
 
     ["Onix", "Roca/Tierra", 35, 45, 160, 70],
