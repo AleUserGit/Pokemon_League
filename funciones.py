@@ -95,6 +95,8 @@ def registrar_pokemon(lst_pokemones):
 #Funcion 2 -- eliminar
 def eliminar_pokemon(lst_pokemones):
     nombre = input("Ingrese el nombre del Pokemon a eliminar: ").strip()
+    
+    
     '''
     Buscar en la lista
     Si existe y es "liberado" pedir confirmación

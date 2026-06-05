@@ -1,8 +1,3 @@
-# Usar LISTAS DE LISTAS, no listas paralelas
-# O las funciones van a ser imposibles
-# Actualizar las categorías
-
-##### lista de emi  y chat
 # lst_pokemones([nombre, tipo, nivel, poder, entrenador, victorias, estado])
 
 lst_pokemones = [
@@ -43,9 +38,9 @@ lst_pokemones = [
     ["Zapdos", "Eléctrico", 80, 3650, "Blue", 100, "Disponible"],
     ["Moltres", "Fuego", 80, 3700, "Blaine", 90, "Disponible"],
 
-    ["Dratini", "Dragon", 31, 2000, "Clair", 50, "Entrenamiento"],
-    ["Dragonair", "Dragon", 51, 2800, "Clair", 70, "Disponible"],
-    ["Dragonite", "Dragon", 81, 4000, "Lance", 80, "Disponible"],
+    ["Dratini", "Dragón", 31, 2000, "Clair", 50, "Entrenamiento"],
+    ["Dragonair", "Dragón", 51, 2800, "Clair", 70, "Disponible"],
+    ["Dragonite", "Dragón", 81, 4000, "Lance", 80, "Disponible"],
 
     ["Mewtwo", "Psíquico", 66, 4360, "Gasspy", 130, "Lesionado"],
     ["Mew", "Psíquico", 67, 4000, "Profesor Oak", 100, "Liberado"]
