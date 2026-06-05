@@ -1,11 +1,6 @@
-# from funciones import <nombre funcion>
-# Llamar todas las funciones al main antes de arrancar
-#el main mas mainioso del mainverso
-# lst_pokemones([nombre, tipo, nivel, poder, entrenador, victorias, estado])
-
 from funciones import opciones_menu, ingresar_opcion
+from funciones import registrar_pokemon, eliminar_pokemon, modificar_pokemon
 
-        
 def main(): 
     print("=" * 40)
     print("MENU".center(40))

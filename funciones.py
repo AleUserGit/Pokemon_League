@@ -1,4 +1,4 @@
-#las dudosas funciones de lo y memi
+#Funciones de menú : Emilia y Lola
 def opciones_menu():
     print("1. Registrar Pokémon (Alta)")
     print("2. Eliminar Pokémon (Baja)")
@@ -22,7 +22,7 @@ def ingresar_opcion():
     return opcion
 
 
-#Funciones de validación
+#Funciones de validación : Alejo
 def validar_nombre(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
     while nombre == "":
@@ -100,8 +100,7 @@ def validar_estado():
         estado = input("Ingrese el estado del Pokemón: ").strip().capitalize()
     return estado
 
-
-# Función 1 -- registrar pokemones
+# Función 1 -- registrar pokemones : Alejo
 
 def registrar_pokemon(lst_pokemones):
     
@@ -117,7 +116,7 @@ def registrar_pokemon(lst_pokemones):
 
     lst_pokemones.append([nombre, tipo, nivel, poder, entrenador, victorias, estado])
 
-#Funcion 2 -- eliminar
+#Funcion 2 -- eliminar : Alejo
 def eliminar_pokemon(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip()
     while nombre == "":
@@ -146,7 +145,7 @@ def eliminar_pokemon(lst_pokemones):
         else:
             print("El Pokemón no se encuentra Liberado")
 
-#Funcion 3 -- modificar
+#Funcion 3 -- modificar : Alejo
 def modificar_pokemon(lst_pokemones):
     mod_pokemon = input("Ingrese el Pokemón que desea modificar: ").strip()
     while mod_pokemon == "":
@@ -206,4 +205,4 @@ def modificar_pokemon(lst_pokemones):
     
 
 
-#Funcion 4 -- visualizar
+#Funcion 4 -- visualizar : quien sea que lo haga, que se anote acá
