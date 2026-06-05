@@ -94,8 +94,20 @@ def registrar_pokemon(lst_pokemones):
 
 #Funcion 2 -- eliminar
 def eliminar_pokemon(lst_pokemones):
-    nombre = input("Ingrese el nombre del Pokemon a eliminar: ").strip()
+    nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
+    while nombre == "":
+        print("Error: valor nulo")
+        nombre = input("Ingrese nombre del Pokemón").strip().capitalize()
     
+    indice = -1
+    for i, p in enumerate(lst_pokemones):
+        if p[0].capitalize() == nombre.capitalize():
+            indice = i
+    if indice == -1:
+        print("No se encontró el Pokemón", nombre)
+    else:
+        print(lst_pokemones[indice])
+
     
     '''
     Buscar en la lista
