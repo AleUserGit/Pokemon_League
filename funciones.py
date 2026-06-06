@@ -208,4 +208,48 @@ def modificar_pokemon(lst_pokemones):
     
 
 
-#Funcion 4 -- visualizar : quien sea que lo haga, que se anote acá
+#Funcion 4 -- visualizar : Male
+def ordenar_pokemones(lst_pokemones):
+
+    for i in range(len(lst_pokemones)-1):
+
+        for j in range(len(lst_pokemones)-1-i):
+
+            poder_actual = lst_pokemones[j][3]
+            poder_siguiente = lst_pokemones[j+1][3]
+
+            nombre_actual = lst_pokemones[j][0]
+            nombre_siguiente = lst_pokemones[j+1][0]
+
+            if poder_actual < poder_siguiente:
+
+                aux = lst_pokemones[j]
+                lst_pokemones[j] = lst_pokemones[j+1]
+                lst_pokemones[j+1] = aux
+
+            elif poder_actual == poder_siguiente:
+
+                if nombre_actual > nombre_siguiente:
+
+                    aux = lst_pokemones[j]
+                    lst_pokemones[j] = lst_pokemones[j+1]
+                    lst_pokemones[j+1] = aux
+
+
+def informe_general(lst_pokemones):
+
+    if len(lst_pokemones) == 0:
+        print("No hay Pokémon registrados.")
+        return
+
+    ordenar_pokemones(lst_pokemones)
+
+    for pokemon in lst_pokemones:
+
+        print("\nNombre:", pokemon[0])
+        print("Tipo:", pokemon[1])
+        print("Nivel:", pokemon[2])
+        print("Poder:", pokemon[3])
+        print("Entrenador:", pokemon[4])
+        print("Victorias:", pokemon[5])
+        print("Estado:", pokemon[6])
