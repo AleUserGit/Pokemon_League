@@ -165,6 +165,7 @@ def modificar_pokemon(lst_pokemones):
         print("No se encontró el Pokemón", mod_pokemon)
     else:
         categoria = ["Nombre", "Tipo", "Nivel", "Poder", "Entrenador", "Victorias", "Estado"]
+        print("Las categorías disponibles son", categoria)
         print(lst_pokemones[indice])
         termino = False
         while not termino:
