@@ -1,8 +1,8 @@
 #Funciones de menú : Emilia y Lola
 def opciones_menu():
     ancho= 60
-    espacios= (ancho - len(titulo))//2
     titulo= "SISTEMA DE GESTIÓN: POKÉTRAINER LEAGUE"
+    espacios= (ancho - len(titulo))//2
     print("=" * ancho)
     print(espacios * " " + titulo + espacios * " ")
     print("=" * ancho)
