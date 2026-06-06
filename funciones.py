@@ -30,6 +30,7 @@ def validar_nombre(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
     while nombre == "":
         print("Error: valor nulo")
+        print("--")
         nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
     for n in lst_pokemones:
         if nombre == n[0]:
@@ -40,9 +41,11 @@ def validar_nombre(lst_pokemones):
 def validar_tipo():
     tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
     print ("Los tipos disponibles son:", tipos)
+    print("")
     tipo = input("Ingrese el tipo del Pokemón: ").strip().capitalize()
     while tipo not in tipos:
         print("Error: tipo no válido")
+        print("--")
         tipo = input("Ingrese el tipo del Pokemón: ").strip().capitalize()
     return tipo
 
@@ -50,7 +53,7 @@ def validar_nivel():
     nivel_valido = False
     while not nivel_valido:
         try:
-            nivel = int(input("Ingrese el nivel(1-100) del Pokemón: ").strip())
+            nivel = int(input("Ingrese el nivel (1-100) del Pokemón: ").strip())
             if 1 <= nivel <= 100:
                 nivel_valido = True
             else:
@@ -77,6 +80,7 @@ def validar_entrenador():
     tiene_letras = any(l.isalpha() for l in entrenador)
     while not tiene_letras:
         print("Error: nombre no válido")
+        print("--")
         entrenador = input("Ingrese nombre del entrenador: ").strip()
         tiene_letras = any(l.isalpha() for l in entrenador)
     return entrenador
@@ -97,9 +101,11 @@ def validar_victoria():
 def validar_estado():
     estado_valido = ["Disponible", "Entrenamiento", "Lesionado", "Liberado"]
     print("Los estados disponibles son:", estado_valido)
+    print("")
     estado = input("Ingrese el estado del Pokemón: ").strip().capitalize()
     while estado not in estado_valido:
         print("Error: estado no válido")
+        print("--")
         estado = input("Ingrese el estado del Pokemón: ").strip().capitalize()
     return estado
 
@@ -125,6 +131,7 @@ def eliminar_pokemon(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip()
     while nombre == "":
         print("Error: valor nulo")
+        print("--")
         nombre = input("Ingrese nombre del Pokemón: ").strip()
 
     indice = -1
@@ -140,6 +147,7 @@ def eliminar_pokemon(lst_pokemones):
             eliminar = input("Desea eliminar el Pokemón? (s/n): ").strip().lower()
             while eliminar != "s" and eliminar != "n":
                 print("Ingrese una respuesta válida")
+                print("--")
                 eliminar = input("Desea eliminar el Pokemón? (s/n): ").strip().lower()
             if eliminar == "s":
                 lst_pokemones.pop(indice)
@@ -154,6 +162,7 @@ def modificar_pokemon(lst_pokemones):
     mod_pokemon = input("Ingrese el Pokemón que desea modificar: ").strip()
     while mod_pokemon == "":
         print("Error: valor nulo")
+        print("--")
         mod_pokemon = input("Ingrese el Pokemón que desea modificar: ").strip()
 
     indice = -1
@@ -166,11 +175,15 @@ def modificar_pokemon(lst_pokemones):
     else:
         categoria = ["Nombre", "Tipo", "Nivel", "Poder", "Entrenador", "Victorias", "Estado"]
         print("Las categorías disponibles son", categoria)
+        print("")
         print(lst_pokemones[indice])
+        print("")
         termino = False
         while not termino:
             cambiar = input("Ingrese la categoría a modificar: ").strip().capitalize()
             while cambiar not in categoria:
+                print("Categoría no encontrada")
+                print("--")
                 cambiar = input("Ingrese la categoría a modificar: ").strip().capitalize()
             if cambiar == "Nombre":
                     nombre = validar_nombre(lst_pokemones)
@@ -196,10 +209,13 @@ def modificar_pokemon(lst_pokemones):
                 estado = validar_estado()
                 lst_pokemones[indice][6] = estado
             
+            print("")
             print(lst_pokemones[indice])
+            print("")
             seguir = input("Desea modificar otra categoría? (s/n): ").strip().lower()
             while seguir != "s" and seguir != "n":
                 print("Ingrese una respuesta válida")
+                print("--")
                 seguir = input("Desea modificar otra categoría? (s/n): ").strip().lower()
             if seguir == "s":
                 print("Confirmado")
