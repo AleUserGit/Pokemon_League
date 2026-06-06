@@ -4,7 +4,7 @@ def opciones_menu():
     espacios= (ancho - len(titulo))//2
     titulo= "SISTEMA DE GESTIÓN: POKÉTRAINER LEAGUE"
     print("=" * ancho)
-    print(espacios * " " + len(titulo) + espacios * " ")
+    print(espacios * " " + titulo + espacios * " ")
     print("=" * ancho)
     
     print("1. Registrar Pokémon (Alta)")
