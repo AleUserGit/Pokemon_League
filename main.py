@@ -36,7 +36,7 @@ print("k")
 '''
 
 
-def main()    
+def main():    
     
     while True:
         
@@ -48,9 +48,7 @@ def main()
 
         if opcion == 1:
             print("REGISTRAR POKEMON")
-            registrar_pokemon(lst_pokemones)
-            print("Tu pokemon ya ha sido registrado")
-        
+            registrar_pokemon(lst_pokemones)        
                 
 
         elif opcion == 2:

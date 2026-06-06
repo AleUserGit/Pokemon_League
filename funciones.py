@@ -30,7 +30,7 @@ def validar_nombre(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
     while nombre == "":
         print("Error: valor nulo")
-        nombre = input("Ingrese nombre del Pokemón").strip().capitalize()
+        nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
     for n in lst_pokemones:
         if nombre == n[0]:
             print("El Pokemón ya se encuentra registrado")
@@ -43,7 +43,7 @@ def validar_tipo():
     tipo = input("Ingrese el tipo del Pokemón: ").strip().capitalize()
     while tipo not in tipos:
         print("Error: tipo no válido")
-        tipo = input("Ingrese el tipo del Pokemón").strip().capitalize()
+        tipo = input("Ingrese el tipo del Pokemón: ").strip().capitalize()
     return tipo
 
 def validar_nivel():
@@ -118,13 +118,14 @@ def registrar_pokemon(lst_pokemones):
     estado = validar_estado()
 
     lst_pokemones.append([nombre, tipo, nivel, poder, entrenador, victorias, estado])
+    print("Pokemón registrado")
 
 #Funcion 2 -- eliminar : Alejo
 def eliminar_pokemon(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip()
     while nombre == "":
         print("Error: valor nulo")
-        nombre = input("Ingrese nombre del Pokemón").strip()
+        nombre = input("Ingrese nombre del Pokemón: ").strip()
 
     indice = -1
     for i, p in enumerate(lst_pokemones):
@@ -136,10 +137,10 @@ def eliminar_pokemon(lst_pokemones):
     else:
         if lst_pokemones[indice][6] == "Liberado":
             print(lst_pokemones[indice])
-            eliminar = input("Desea eliminar el Pokemón? (s/n)").strip().lower()
+            eliminar = input("Desea eliminar el Pokemón? (s/n): ").strip().lower()
             while eliminar != "s" and eliminar != "n":
                 print("Ingrese una respuesta válida")
-                eliminar = input("Desea eliminar el Pokemón? (s/n)").strip().lower()
+                eliminar = input("Desea eliminar el Pokemón? (s/n): ").strip().lower()
             if eliminar == "s":
                 lst_pokemones.pop(indice)
                 print("Se eliminó el Pokemón", nombre)
@@ -153,7 +154,7 @@ def modificar_pokemon(lst_pokemones):
     mod_pokemon = input("Ingrese el Pokemón que desea modificar: ").strip()
     while mod_pokemon == "":
         print("Error: valor nulo")
-        mod_pokemon = input("Ingrese el Pokemón que desea modificar").strip()
+        mod_pokemon = input("Ingrese el Pokemón que desea modificar: ").strip()
 
     indice = -1
     for i, p in enumerate(lst_pokemones):
