@@ -1,5 +1,5 @@
 from funciones import opciones_menu, ingresar_opcion
-from funciones import registrar_pokemon, eliminar_pokemon, modificar_pokemon
+from funciones import registrar_pokemon, eliminar_pokemon, modificar_pokemon, informe_general
 from listas import lst_pokemones
 
 '''
