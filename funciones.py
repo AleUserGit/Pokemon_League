@@ -1,5 +1,8 @@
 #Funciones de menú : Emilia y Lola
 def opciones_menu():
+    print("=" * 40)
+    print("MENU".center(40))
+    print("=" * 40)
     print("1. Registrar Pokémon (Alta)")
     print("2. Eliminar Pokémon (Baja)")
     print("3. Modificar Pokémon (Modificación)")
