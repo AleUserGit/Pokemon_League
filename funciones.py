@@ -174,10 +174,28 @@ def modificar_pokemon(lst_pokemones):
         print("No se encontró el Pokemón", mod_pokemon)
     else:
         categoria = ["Nombre", "Tipo", "Nivel", "Poder", "Entrenador", "Victorias", "Estado"]
-        print("Las categorías disponibles son", categoria)
+        print("Las categorías disponibles son:")
         print("")
-        print(lst_pokemones[indice])
-        print("")
+                
+        print(f"{'Nombre':<15}"
+              f"{'Tipo':<15}"
+              f"{'Nivel':<10}"
+              f"{'Poder':<10}"
+              f"{'Entrenador':<20}"
+              f"{'Victorias':<12}"
+              f"{'Estado':<15}")
+        
+        pokemon= lst_pokemones[indice]
+
+        print(f"{pokemon[0]:<15}"
+              f"{pokemon[1]:<15}"
+              f"{pokemon[2]:<10}"
+              f"{pokemon[3]:<10}"
+              f"{pokemon[4]:<20}"
+              f"{pokemon[5]:<12}"
+              f"{pokemon[6]:<15}")
+
+        
         termino = False
         while not termino:
             cambiar = input("Ingrese la categoría a modificar: ").strip().capitalize()
