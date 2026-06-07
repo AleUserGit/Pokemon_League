@@ -248,7 +248,7 @@ def modificar_pokemon(lst_pokemones):
     
 
 
-#Funcion 4 -- visualizar : Male
+#Funcion para ordenar los pokemones : Male
 def ordenar_pokemones(lst_pokemones):
 
     for i in range(len(lst_pokemones)-1):
@@ -276,6 +276,7 @@ def ordenar_pokemones(lst_pokemones):
                     lst_pokemones[j+1] = aux
 
 
+# Función 4 -- visualizar : Emi y Lola
 def informe_general(lst_pokemones):
 
     if len(lst_pokemones) == 0:
