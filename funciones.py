@@ -1,8 +1,12 @@
 #Funciones de menú : Emilia y Lola
 def opciones_menu():
-    print("=" * 40)
-    print("MENU".center(40))
-    print("=" * 40)
+    ancho= 60
+    titulo= "SISTEMA DE GESTIÓN: POKÉTRAINER LEAGUE"
+    espacios= (ancho - len(titulo))//2
+    print("=" * ancho)
+    print(espacios * " " + titulo + espacios * " ")
+    print("=" * ancho)
+    
     print("1. Registrar Pokémon (Alta)")
     print("2. Eliminar Pokémon (Baja)")
     print("3. Modificar Pokémon (Modificación)")
