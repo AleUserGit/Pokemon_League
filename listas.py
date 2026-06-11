@@ -1,5 +1,5 @@
 # lst_pokemones([nombre, tipo, nivel, poder, entrenador, victorias, estado])
-def cargarPokemones():
+def cargar_pokemones():
     lst_pokemones = [
         ["Bulbasaur", "Planta", 45, 1880, "Ash", 45, "Entrenamiento"],
         ["Ivysaur", "Planta", 60, 2450, "Gary", 60, "Disponible"],
@@ -45,4 +45,4 @@ def cargarPokemones():
         ["Mewtwo", "Psíquico", 66, 4360, "Gasspy", 130, "Lesionado"],
         ["Mew", "Psíquico", 67, 4000, "Profesor Oak", 100, "Liberado"]
     ]
-
+    return lst_pokemones

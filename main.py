@@ -1,22 +1,17 @@
 from funciones import opciones_menu, ingresar_opcion
 from funciones import registrar_pokemon, eliminar_pokemon, modificar_pokemon, informe_general
-from listas import cargarPokemones
+from listas import cargar_pokemones
 
 def main():    
-    lst_pokemones = cargarPokemones()
-    
-    while True:
+    lst_pokemones = cargar_pokemones()
+    opciones_menu()
+    opcion = ingresar_opcion()
+
+    while opcion != 5:
         
-        opciones_menu()
-        opcion = ingresar_opcion()
-
-
-        #analizamos las opciones
-
         if opcion == 1:
             print("REGISTRAR POKEMON")
-            registrar_pokemon(lst_pokemones)        
-                
+            registrar_pokemon(lst_pokemones)       
 
         elif opcion == 2:
             print("ELIMINAR POKEMON")
@@ -30,11 +25,10 @@ def main():
         elif opcion == 4:
             print("VISUALIZACION DE DATOS")
             informe_general(lst_pokemones)
-            
+        
+        opciones_menu()
+        opcion = ingresar_opcion()
                 
-        elif opcion == 5:
-            print("EL PROGRAMA HA FINALIZADO")
-            break
-            
+    print("EL PROGRAMA HA FINALIZADO")
 
 main()
