@@ -25,16 +25,22 @@ def ingresar_opcion():
 #Funciones de validación : Alejo
 def validar_nombre(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
-    existe = any(nombre == n[0] for n in lst_pokemones)
-    while nombre == "" or existe:
-        if nombre == "":
+    while nombre == "":
+            print("")
             print("Error: el nombre no puede estar vacío")
-        elif existe:
-            print("Error: el Pokemón ya se encuentra registrado")
-        print("--")
-        nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
-        existe = any(nombre == n[0] for n in lst_pokemones)
-    return nombre
+            print("--")
+            nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
+    
+    existe = any(nombre == n[0] for n in lst_pokemones)
+    entrenador = ""
+    if existe:
+        entrenador = validar_entrenador()
+        repite = any(nombre == n[0] and entrenador == n[4] for n in lst_pokemones)
+        while repite:
+            print(f"El Pokemón {nombre} ya tiene asignado al entrenador {entrenador}")
+            entrenador = validar_entrenador()
+            repite = any(nombre == n[0] and entrenador == n[4] for n in lst_pokemones)
+    return nombre, entrenador
 
 def validar_tipo():
     tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
@@ -69,13 +75,13 @@ def validar_poder():
 
 def validar_entrenador():
     entrenador = input("Ingrese nombre del entrenador: ").strip()
-    tiene_letras = any(l.isalpha() for l in entrenador)
+    tiene_letras = (l.isalpha() for l in entrenador)
     while not tiene_letras:
         print("")
         print("Error: nombre no válido")
         print("--")
         entrenador = input("Ingrese nombre del entrenador: ").strip()
-        tiene_letras = any(l.isalpha() for l in entrenador)
+        tiene_letras = (l.isalpha() for l in entrenador)
     return entrenador
 
 def validar_victoria():
@@ -103,11 +109,12 @@ def validar_estado():
 
 def registrar_pokemon(lst_pokemones):
     
-    nombre = validar_nombre(lst_pokemones)
+    nombre, entrenador = validar_nombre(lst_pokemones)
     tipo = validar_tipo()
     nivel = validar_nivel()
     poder = validar_poder()
-    entrenador = validar_entrenador()
+    if entrenador == "":
+        entrenador = validar_entrenador()
     victorias = validar_victoria()
     estado = validar_estado()
 
