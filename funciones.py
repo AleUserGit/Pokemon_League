@@ -497,9 +497,8 @@ def reporte_estadistico(lst_pokemones):
     cant_pokemones= len(lst_pokemones)
     suma_nivel= 0 
     suma_poder= 0
-    #
+    #esto sirve tmb para hacer el total de las victorias para dividir en los p y el promedio de cada tipo
     suma_victorias= 0
-
     max_poder= lst_pokemones[0]
     min_poder= lst_pokemones[0]
  
