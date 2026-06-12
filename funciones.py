@@ -492,7 +492,6 @@ def informe_general(lst_pokemones):
                f"{pokemon[6]:<15}")
          
 
-
 def reporte_estadistico(lst_pokemones):
     cant_pokemones= len(lst_pokemones)
     suma_nivel= 0 
@@ -524,3 +523,41 @@ def reporte_estadistico(lst_pokemones):
     #falta promedio de viotorias por pokemon.
     print(f"El Pokemon {max_poder[0]} tiene el mayor poder ({ max_poder[3]})")
     print(f"El Pokemon {min_poder[0]} tiene el menor poder ({ min_poder[3]})")
+
+
+def reporte_matriz(lst_pokemones):
+    tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
+    estados = ["Disponible", "Entrenamiento", "Lesionado", "Liberado"]
+    matriz = []
+    
+
+    for t in tipos:
+        fila = [0,0,0,0]
+        matriz.append(fila)
+
+    for p in lst_pokemones:
+        #Recorre cada tipo, buscando coincidencias para p[1] / tipo:
+        fila = -1
+        for n, t in enumerate(tipos):
+            if t == p[1]:
+                fila = n
+        #Recorre cada estado, buscando coincidencias para p[1] / tipo:
+        columna = -1
+        for n, e in enumerate(estados):
+            if e == p[6]:
+                columna = n
+        #Suma 1 a la fila y columna que corresponda en la matriz:
+        matriz[fila][columna] += 1
+
+    print(f"{'Tipo': <12}", end ="")
+    for e in estados:
+        print(f"{e: <12}", end = "")
+    print("Total")
+
+    for n, t in enumerate(tipos):
+        total = 0
+        print(f"{t: <12}", end= "")
+        for c, e in enumerate(estados):
+            print(f"{matriz[n][c]: <15}", end="")
+            total += matriz[n][c]
+        print(total)
