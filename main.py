@@ -3,6 +3,7 @@ from funciones import registrar_pokemon, eliminar_pokemon, modificar_pokemon, in
 from listas import cargar_pokemones
 from colorama import init, Fore
 
+init()
 def main():    
     lst_pokemones = cargar_pokemones()
     opciones_menu()
@@ -11,20 +12,20 @@ def main():
     while opcion != 5:
         
         if opcion == 1:
-            print(Fore.GREEN + "REGISTRAR POKEMON")
+            print(Fore.GREEN + "REGISTRAR POKEMON" + Fore.RESET)
             registrar_pokemon(lst_pokemones)       
 
         elif opcion == 2:
-            print("ELIMINAR POKEMON")
+            print(Fore.GREEN + "ELIMINAR POKEMON" + Fore.RESET)
             eliminar_pokemon(lst_pokemones)
           
         elif opcion == 3:
-            print("MODIFICAR POKEMON")
+            print(Fore.GREEN + "MODIFICAR POKEMON" + Fore.RESET)
             modificar_pokemon(lst_pokemones)
          
 
         elif opcion == 4:
-            print("VISUALIZACION DE DATOS")
+            print(Fore.GREEN + "VISUALIZACION DE DATOS" + Fore.RESET)
             informe_general(lst_pokemones)
         
         opciones_menu()
