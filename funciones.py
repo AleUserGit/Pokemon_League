@@ -524,6 +524,9 @@ def reporte_estadistico(lst_pokemones):
     print(f"El Pokemon {max_poder[0]} tiene el mayor poder ({ max_poder[3]})")
     print(f"El Pokemon {min_poder[0]} tiene el menor poder ({ min_poder[3]})")
 
+#def reporte_por_tipo(lst_pokemones): 
+
+
 
 def reporte_matriz(lst_pokemones):
     tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
