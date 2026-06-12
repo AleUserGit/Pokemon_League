@@ -39,6 +39,6 @@ def main():
 main()
 
 '''
-hola = reporte_estadistico(lst_pokemones)
-print(hola)
+lst_pokemones = cargar_pokemones()
+print(reporte_estadistico(lst_pokemones))
 '''

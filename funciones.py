@@ -513,15 +513,15 @@ def reporte_estadistico(lst_pokemones):
         #en la primera vuelta los dos sun iguales entonces no cambia nada
         if p[3] > max_poder[3]:
             max_poder= p
-        else:
+        if p[3] < min_poder[3]:
             min_poder= p
     promedio_nivel= suma_nivel/cant_pokemones
     promedio_poder= suma_poder/cant_pokemones
 
-    print("La cantidad total de pokemones es:", cant_pokemones)
-    print("El nivel promedio es:", promedio_nivel)
-    print("El poder promedio es:", promedio_poder)
+    print(f"Hay un total de {cant_pokemones} Pokemones")
+    print("El nivel promedio es:", round(promedio_nivel, 3))
+    print("El poder promedio es:", round(promedio_poder, 3))
     print("El total de vistorias es:", suma_victorias)
     #falta promedio de viotorias por pokemon.
-    print("El pokemon con mayor poder es:", max_poder[0],"-", max_poder[3])
-    print("El pokemon con menor poder es:",min_poder[0],"-", min_poder[3])
+    print(f"El Pokemon {max_poder[0]} tiene el mayor poder ({ max_poder[3]})")
+    print(f"El Pokemon {min_poder[0]} tiene el menor poder ({ min_poder[3]})")
