@@ -524,7 +524,78 @@ def reporte_estadistico(lst_pokemones):
     print(f"El Pokemon {max_poder[0]} tiene el mayor poder ({ max_poder[3]})")
     print(f"El Pokemon {min_poder[0]} tiene el menor poder ({ min_poder[3]})")
 
-#def reporte_por_tipo(lst_pokemones): 
+'''
+def reporte_tipo(lst_pokemones)
+
+victoria_fuego= 0
+victoria_agua= 0
+victoria_planta= 0
+victoria_electrico= 0
+victoria_psiquico= 0
+victoria_lucha= 0
+victoria_roca= 0
+victoria_fantasma= 0
+victoria_dragon= 0
+victoria_normal= 0
+
+cant_fuego= 0
+cant_agua= 0
+cant_planta= 0
+cant_electrico= 0
+cant_psiquico= 0
+cant_lucha= 0
+cant_roca= 0
+cant_fantasma= 0
+cant_dragon= 0
+cant_normal= 0
+
+for p in lst_pokemones:
+    if p[1] == "Fuego":
+        victoria_fuego = victoria_fuego + p[5]
+        cant_fuego += 1
+    elif p[1] == "Agua":
+        victoria_agua = victoria_agua + p[5]
+        cant_agua += 1
+    elif p[1] == "Planta":
+        victoria_planta = victoria_planta + p[5]
+        cant_planta += 1
+    elif p[1] == "Eléctrico":
+        victoria_electrico = victoria_electrico + p[5]
+        cant_electrico += 1    
+    elif p[1] == "Psíquico":
+        victoria_psiquico = victoria_psiquico + p[5]
+        cant_psiquico += 1
+    elif p[1] == "Lucha":
+        victoria_lucha= victoria_lucha + p[5]
+        cant_lucha += 1
+    elif p[1] == "Roca":
+        victoria_roca= victoria_roca + p[5]
+        cant_roca += 1
+    elif p[1] == "Fantasma":
+        victoria_fantasma= victoria_fantasma + p[5]
+        cant_fantasma += 1
+    elif p[1] == "Dragón":
+        victoria_dragon= victoria_dragon + p[5]
+        cant_dragon += 1
+    elif p[1] == "Normal":
+        victoria_normal= victoria_normal + p[5]
+        cant_normal += 1
+
+#ahora viene la parte de calcular el promedio
+        
+print("El promedios de victorias de cada uno de los tipos de los pokemones es:")
+print("Fuego:", round(victoria_fuego/cant_fuego,2))
+print("Agua:", round(victoria_agua/cant_agua,2))
+print("Planta:", round(victoria_planta/cant_planta,2))
+print("Electrico:", round(victoria_electrico/cant_electrico,2))
+print("Psiquico:", round(victoria_psiquico/cant_psiquico,2))
+print("Lucha:", round(victoria_lucha/cant_lucha,2))
+print("Roca:", round(victoria_roca/cant_roca,2))
+print("Fantasma:", round(victoria_fantasma/cant_fantasma,2))
+print("Dragón", round(victoria_dragon/cant_dragon,2))
+print("Normal", round(victoria_normal/cant_normal,2))
+
+''' 
 
 
 
