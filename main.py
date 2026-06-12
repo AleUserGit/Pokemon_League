@@ -14,7 +14,7 @@ def main():
     while opcion != 5:
         
         if opcion == 1:
-            print(Fore.GREEN + "REGISTRAR POKEMON")
+            print(Fore.GREEN + "REGISTRAR POKEMON" + Fore.RESET)
             registrar_pokemon(lst_pokemones)       
 
         elif opcion == 2:
