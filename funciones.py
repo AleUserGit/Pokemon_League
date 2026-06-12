@@ -1,3 +1,6 @@
+from colorama import init, Fore
+
+
 #Funciones de menú : Emilia y Lola
 def opciones_menu():
     ancho= 60
@@ -7,16 +10,16 @@ def opciones_menu():
     print(espacios * " " + titulo + espacios * " ")
     print("=" * ancho)
     
-    print("1. Registrar un Pokémon (Alta)")
-    print("2. Eliminar un Pokémon (Baja)")
-    print("3. Modificar atributos del Pokémon (Modificación)")
-    print("4. Informe General – Visualización de los datos")
-    print("5. Salir")
+    print(Fore.GREEN + "1. Registrar un Pokémon (Alta)")
+    print(Fore.GREEN + "2. Eliminar un Pokémon (Baja)")
+    print(Fore.GREEN + "3. Modificar atributos del Pokémon (Modificación)")
+    print(Fore.GREEN + "4. Informe General – Visualización de los datos")
+    print(Fore.GREEN + "5. Salir")
     
 def ingresar_opcion():
     opcion= input("Seleccione una opción: ").strip()
     while not opcion.isdigit() or (int(opcion) < 1 or int(opcion) > 5):
-                print("Opción no válida. Inténtelo de nuevo: ")
+                print(Fore.RED + "Error: opción no válida. Inténtelo de nuevo")
                 opcion= input("Seleccione otra opcion: ").strip()
     opcion = int(opcion)
     return opcion
@@ -27,7 +30,7 @@ def validar_nombre(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
     while nombre == "":
             print("")
-            print("Error: el nombre no puede estar vacío")
+            print(Fore.RED + "Error: el nombre no puede estar vacío")
             print("--")
             nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
     
@@ -48,7 +51,7 @@ def validar_tipo():
     print("")
     tipo = input("Ingrese el tipo del Pokemón: ").strip().capitalize()
     while tipo not in tipos:
-        print("Error: tipo no válido")
+        print(Fore.RED + "Error: tipo no válido")
         print("--")
         tipo = input("Ingrese el tipo del Pokemón: ").strip().capitalize()
     return tipo
@@ -57,7 +60,7 @@ def validar_nivel():
     nivel = input("Ingrese el nivel (1-100) del Pokemón: ").strip()
     while not nivel.isdigit() or (int(nivel) < 1 or int(nivel) > 100):
         print("")
-        print("Error: Se requiere un número entero entre 1 y 100")
+        print(Fore.RED + "Error: Se requiere un número entero entre 1 y 100")
         print("--")
         nivel = input("Ingrese el nivel (1-100) del Pokemón: ").strip()
     nivel = int(nivel)
@@ -67,7 +70,7 @@ def validar_poder():
     poder = input("Ingrese el nivel de poder del Pokemón: ").strip()
     while not poder.isdigit() or int(poder) <= 0:
         print("")
-        print("Error: Ingrese un número entero mayor a 0")
+        print(Fore.RED + "Error: Ingrese un número entero mayor a 0")
         print("--")
         poder = input("Ingrese el nivel de poder del Pokemón: ").strip()
     poder = int(poder)
@@ -75,20 +78,20 @@ def validar_poder():
 
 def validar_entrenador():
     entrenador = input("Ingrese nombre del entrenador: ").strip()
-    tiene_letras = (l.isalpha() for l in entrenador)
-    while not tiene_letras:
+    tiene_letras = any(l.isalpha() for l in entrenador)
+    while not tiene_letras and entrenador != "":
         print("")
-        print("Error: nombre no válido")
+        print(Fore.RED + "Error: nombre no válido")
         print("--")
         entrenador = input("Ingrese nombre del entrenador: ").strip()
-        tiene_letras = (l.isalpha() for l in entrenador)
+        tiene_letras = any(l.isalpha() for l in entrenador)
     return entrenador
 
 def validar_victoria():
     victorias = input("Ingrese el número de victorias del Pokemón: ").strip()
     while not victorias.isdigit():
         print("")
-        print("Error: Se requiere un número mayor a cero")
+        print(Fore.RED + "Error: Se requiere un número mayor a cero")
         print("--")
         victorias = input("Ingrese el número de victorias del Pokemón: ").strip()
     victorias = int(victorias)
@@ -100,7 +103,7 @@ def validar_estado():
     print("")
     estado = input("Ingrese el estado del Pokemón: ").strip().capitalize()
     while estado not in estado_valido:
-        print("Error: estado no válido")
+        print(Fore.RED + "Error: estado no válido")
         print("--")
         estado = input("Ingrese el estado del Pokemón: ").strip().capitalize()
     return estado
@@ -113,10 +116,15 @@ def registrar_pokemon(lst_pokemones):
     tipo = validar_tipo()
     nivel = validar_nivel()
     poder = validar_poder()
-    if entrenador == "":
+    nombre_existe = any(nombre == n[0] for n in lst_pokemones)
+    if entrenador == "" and not nombre_existe:
         entrenador = validar_entrenador()
+    
     victorias = validar_victoria()
-    estado = validar_estado()
+    if entrenador == "":
+        estado = "Liberado"
+    else:
+        estado = validar_estado()
 
     lst_pokemones.append([nombre, tipo, nivel, poder, entrenador, victorias, estado])
     print("Pokemón registrado")
@@ -125,7 +133,7 @@ def registrar_pokemon(lst_pokemones):
 def eliminar_pokemon(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip()
     while nombre == "":
-        print("Error: valor nulo")
+        print(Fore.RED + "Error: valor nulo")
         print("--")
         nombre = input("Ingrese nombre del Pokemón: ").strip()
 
@@ -135,7 +143,7 @@ def eliminar_pokemon(lst_pokemones):
             indice = i
 
     if indice == -1:
-        print("No se encontró el Pokemón", nombre)
+        print(Fore.RED + "Error: no se encontró el Pokemón", nombre)
     else:
         if lst_pokemones[indice][6] == "Liberado":
             pokemon= lst_pokemones[indice]
@@ -168,13 +176,13 @@ def eliminar_pokemon(lst_pokemones):
             else:
                 print("Eliminación cancelada. No hubo cambios")
         else:
-            print("El Pokemón no se encuentra Liberado")
+            print(Fore.RED + "Error: el Pokemón no se encuentra Liberado")
 
 #Funcion 3 -- modificar : Alejo
 def modificar_pokemon(lst_pokemones):
     mod_pokemon = input("Ingrese el Pokemón que desea modificar: ").strip()
     while mod_pokemon == "":
-        print("Error: valor nulo")
+        print(Fore.RED + "Error: valor nulo")
         print("--")
         mod_pokemon = input("Ingrese el Pokemón que desea modificar: ").strip()
 
@@ -184,7 +192,7 @@ def modificar_pokemon(lst_pokemones):
             indice = i
         
     if indice == -1:
-        print("No se encontró el Pokemón", mod_pokemon)
+        print(Fore.RED + "Error: no se encontró el Pokemón", mod_pokemon)
     else:
         categoria = ["Nombre", "Tipo", "Nivel", "Poder", "Entrenador", "Victorias", "Estado"]
         print("Los atributos disponibles son:")
@@ -212,7 +220,7 @@ def modificar_pokemon(lst_pokemones):
         while not termino:
             cambiar = input("Ingrese el atributo a modificar: ").strip().capitalize()
             while cambiar not in categoria:
-                print("Atributo no encontrado")
+                print(Fore.RED + "Error: atributo no encontrado")
                 print("--")
                 cambiar = input("Ingrese el atributo a modificar: ").strip().capitalize()
             if cambiar == "Nombre":
@@ -258,7 +266,7 @@ def modificar_pokemon(lst_pokemones):
             seguir = input("Desea modificar otro atributo? (s/n): ").strip().lower()
             while seguir != "s" and seguir != "n":
                 print("")
-                print("Ingrese una respuesta válida")
+                print(Fore.RED + "Error: ingrese una respuesta válida")
                 print("--")
                 seguir = input("Desea modificar otro atributo? (s/n): ").strip().lower()
             if seguir == "s":
