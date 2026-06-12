@@ -1,6 +1,6 @@
 from funciones import opciones_menu, ingresar_opcion
 from funciones import registrar_pokemon, eliminar_pokemon, modificar_pokemon, informe_general
-from funciones import reporte_estadistico
+from funciones import reporte_estadistico, reporte_matriz
 from listas import cargar_pokemones
 from colorama import init, Fore
 
@@ -41,4 +41,5 @@ main()
 '''
 lst_pokemones = cargar_pokemones()
 print(reporte_estadistico(lst_pokemones))
+print(reporte_matriz(lst_pokemones))
 '''
