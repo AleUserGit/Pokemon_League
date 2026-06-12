@@ -34,6 +34,7 @@ def validar_nombre(lst_pokemones):
             print("--")
             nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
     
+    #no deberia ser error porque esta deiciendo que ya tiene entreneador
     existe = any(nombre == n[0] for n in lst_pokemones)
     entrenador = ""
     if existe:
@@ -53,7 +54,7 @@ def validar_tipo():
     tipo = input("Ingrese el tipo del Pokemón: ").strip().capitalize()
     while tipo not in tipos:
         print("")
-        print("Error: tipo no válido")
+        print(Fore.RED + "Error: tipo no válido")
         print("--")
         tipo = input("Ingrese el tipo del Pokemón: ").strip().capitalize()
     return tipo
@@ -106,7 +107,7 @@ def validar_estado():
     estado = input("Ingrese el estado del Pokemón: ").strip().capitalize()
     while estado not in estado_valido:
         print("")
-        print("Error: estado no válido")
+        print(Fore.RED + "Error: estado no válido")
         print("--")
         estado = input("Ingrese el estado del Pokemón: ").strip().capitalize()
     return estado
@@ -148,7 +149,7 @@ def eliminar_pokemon(lst_pokemones):
             coincide += 1
 
     if indice == -1:
-        print("No se encontró el Pokemón", nombre)
+        print(Fore.RED + "Error: no se encontró el Pokemón", nombre)
     elif coincide == 1:
         if lst_pokemones[indice][6] == "Liberado":
             pokemon= lst_pokemones[indice]
@@ -172,7 +173,7 @@ def eliminar_pokemon(lst_pokemones):
 
             eliminar = input("Desea eliminar el Pokemón? (s/n): ").strip().lower()
             while eliminar != "s" and eliminar != "n":
-                print("Ingrese una respuesta válida")
+                print(Fore.RED + "Error: ingrese una respuesta válida")
                 print("--")
                 eliminar = input("Desea eliminar el Pokemón? (s/n): ").strip().lower()
             if eliminar == "s":
@@ -181,7 +182,7 @@ def eliminar_pokemon(lst_pokemones):
             else:
                 print("Eliminación cancelada. No hubo cambios")
         else:
-            print("El Pokemón no se encuentra Liberado")
+            print(Fore.RED + "Error: el Pokemón no se encuentra Liberado")
     elif coincide > 1:
         print("Hay más de un Pokemón con el nombre", nombre)
         for r in lst_pokemones:
@@ -196,7 +197,7 @@ def eliminar_pokemon(lst_pokemones):
                indice = i
         
         while indice == -1:
-            print(f"No se encontró un Pokémon {nombre} cuyo entrenador sea {entrenador}")
+            print(Fore.RED + f"Error: no se encontró un Pokémon {nombre} cuyo entrenador sea {entrenador}")
             entrenador = input("Ingrese el entrenador: ").strip().capitalize()
             for i, p in enumerate(lst_pokemones):
                 if p[0].capitalize() == nombre.capitalize() and p[4].capitalize() == entrenador.capitalize():
@@ -224,7 +225,7 @@ def eliminar_pokemon(lst_pokemones):
 
             eliminar = input("Desea eliminar el Pokemón? (s/n): ").strip().lower()
             while eliminar != "s" and eliminar != "n":
-                print("Ingrese una respuesta válida")
+                print(Fore.RED + "Error: ingrese una respuesta válida")
                 print("--")
                 eliminar = input("Desea eliminar el Pokemón? (s/n): ").strip().lower()
             if eliminar == "s":
@@ -233,7 +234,7 @@ def eliminar_pokemon(lst_pokemones):
             else:
                 print("Eliminación cancelada. No hubo cambios")
         else:
-            print("El Pokemón no se encuentra Liberado")
+            print(Fore.RED + "Error: el Pokemón no se encuentra Liberado")
 
     
 
@@ -253,7 +254,7 @@ def modificar_pokemon(lst_pokemones):
             coincide +=1
 
     if indice == -1:
-        print("No se encontró el Pokemón", mod_pokemon)
+        print(Fore.RED + "Error: no se encontró el Pokemón", mod_pokemon)
     elif coincide == 1:
         categoria = ["Nombre", "Tipo", "Nivel", "Poder", "Entrenador", "Victorias", "Estado"]
         print("Los atributos disponibles son:")
@@ -280,7 +281,7 @@ def modificar_pokemon(lst_pokemones):
         while not termino:
             cambiar = input("Ingrese el atributo a modificar: ").strip().capitalize()
             while cambiar not in categoria:
-                print("Atributo no encontrado")
+                print(Fore.RED + "Error: atributo no encontrado")
                 print("--")
                 cambiar = input("Ingrese el atributo a modificar: ").strip().capitalize()
             if cambiar == "Nombre":
@@ -326,7 +327,7 @@ def modificar_pokemon(lst_pokemones):
             seguir = input("Desea modificar otro atributo? (s/n): ").strip().lower()
             while seguir != "s" and seguir != "n":
                 print("")
-                print("Ingrese una respuesta válida")
+                print(Fore.RED + "Error: ingrese una respuesta válida")
                 print("--")
                 seguir = input("Desea modificar otro atributo? (s/n): ").strip().lower()
             if seguir == "s":
@@ -348,7 +349,7 @@ def modificar_pokemon(lst_pokemones):
                indice = i
         
         while indice == -1:
-            print(f"No se encontró un Pokémon {mod_pokemon} cuyo entrenador sea {entrenador}")
+            print(Fore.RED + f"Error: no se encontró un Pokémon {mod_pokemon} cuyo entrenador sea {entrenador}")
             entrenador = input("Ingrese el entrenador: ").strip().capitalize()
             for i, p in enumerate(lst_pokemones):
                 if p[0].capitalize() == mod_pokemon.capitalize() and p[4].capitalize() == entrenador.capitalize():
@@ -470,7 +471,7 @@ def ordenar_pokemones(lst_pokemones):
 def informe_general(lst_pokemones):
 
     if len(lst_pokemones) == 0:
-        print("No hay Pokémon registrados.")
+        print(Fore.RED + "Error: no hay Pokémon registrados.")
         return
 
     ordenar_pokemones(lst_pokemones)
