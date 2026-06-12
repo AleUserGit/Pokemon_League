@@ -75,13 +75,13 @@ def validar_poder():
 
 def validar_entrenador():
     entrenador = input("Ingrese nombre del entrenador: ").strip()
-    tiene_letras = (l.isalpha() for l in entrenador)
-    while not tiene_letras:
+    tiene_letras = any(l.isalpha() for l in entrenador)
+    while not tiene_letras and entrenador != "":
         print("")
         print("Error: nombre no válido")
         print("--")
         entrenador = input("Ingrese nombre del entrenador: ").strip()
-        tiene_letras = (l.isalpha() for l in entrenador)
+        tiene_letras = any(l.isalpha() for l in entrenador)
     return entrenador
 
 def validar_victoria():
@@ -113,10 +113,15 @@ def registrar_pokemon(lst_pokemones):
     tipo = validar_tipo()
     nivel = validar_nivel()
     poder = validar_poder()
-    if entrenador == "":
+    nombre_existe = any(nombre == n[0] for n in lst_pokemones)
+    if entrenador == "" and not nombre_existe:
         entrenador = validar_entrenador()
+    
     victorias = validar_victoria()
-    estado = validar_estado()
+    if entrenador == "":
+        estado = "Liberado"
+    else:
+        estado = validar_estado()
 
     lst_pokemones.append([nombre, tipo, nivel, poder, entrenador, victorias, estado])
     print("Pokemón registrado")
