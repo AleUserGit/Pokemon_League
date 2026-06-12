@@ -330,3 +330,37 @@ def informe_general(lst_pokemones):
                f"{pokemon[4]:<20}"
                f"{pokemon[5]:<12}"
                f"{pokemon[6]:<15}")
+         
+
+
+def reporte_estadistico(lst_pokemones):
+    cant_pokemones= len(lst_pokemones)
+    suma_nivel= 0 
+    suma_poder= 0
+    suma_victorias= 0
+
+    max_poder= lst_pokemones[0]
+    min_poder= lst_pokemones[0]
+ 
+    #p es un pokemon completo de informacion
+    for p in lst_pokemones:
+        suma_nivel= suma_nivel + p[2]
+        suma_poder= suma_poder + p[3]
+        suma_victorias= suma_victorias + p[5]
+        #print directo hago el promedio de los dos separdo
+    
+        #en la primera vuelta los dos sun iguales entonces no cambia nada
+        if p[3] > max_poder[3]:
+            max_poder= p
+        else:
+            min_poder= p
+    promedio_nivel= suma_nivel/cant_pokemones
+    promedio_poder= suma_poder/cant_pokemones
+
+    print("La cantidad total de pokemones es:", cant_pokemones)
+    print("El nivel promedio es:", promedio_nivel)
+    print("El poder promedio es:", promedio_poder)
+    print("El total de vistorias es:", suma_victorias)
+    #falta promedio de viotorias por pokemon.
+    print("El pokemon con mayor poder es:", max_poder[0],"-", max_poder[3])
+    print("El pokemon con menor poder es:",min_poder[0],"-", min_poder[3])
