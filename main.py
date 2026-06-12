@@ -41,6 +41,6 @@ main()
 
 '''
 lst_pokemones = cargar_pokemones()
-#print(reporte_estadistico(lst_pokemones))
-print(reporte_matriz(lst_pokemones))
+print(reporte_estadistico(lst_pokemones))
+reporte_matriz(lst_pokemones)
 '''

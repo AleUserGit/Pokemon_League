@@ -535,20 +535,24 @@ def reporte_matriz(lst_pokemones):
     
 
     for t in tipos:
-        fila = [0,0,0,0]
+        fila = [0, 0, 0, 0]
         matriz.append(fila)
 
     for p in lst_pokemones:
         #Recorre cada tipo, buscando coincidencias para p[1] / tipo:
-        fila = -1
-        for n, t in enumerate(tipos):
+        indice = 0
+        for t in tipos:
             if t == p[1]:
-                fila = n
+                fila = indice
+            indice +=1
+
         #Recorre cada estado, buscando coincidencias para p[1] / tipo:
-        columna = -1
-        for n, e in enumerate(estados):
+        indice = 0
+        for e in estados:
             if e == p[6]:
-                columna = n
+                columna = indice    
+            indice += 1
+
         #Suma 1 a la fila y columna que corresponda en la matriz:
         matriz[fila][columna] += 1
 
@@ -556,11 +560,15 @@ def reporte_matriz(lst_pokemones):
     for e in estados:
         print(f"{e: <12}", end = "")
     print("Total")
-
-    for n, t in enumerate(tipos):
+    
+    fila = 0
+    for t in tipos:
         total = 0
         print(f"{t: <12}", end= "")
-        for c, e in enumerate(estados):
-            print(f"{matriz[n][c]: <15}", end="")
-            total += matriz[n][c]
+        columna = 0
+        for e in estados:
+            print(f"{matriz[fila][columna]: <15}", end="")
+            total += matriz[fila][columna]
+            columna += 1
         print(total)
+        fila += 1
