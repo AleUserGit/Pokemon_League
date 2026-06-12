@@ -497,6 +497,7 @@ def reporte_estadistico(lst_pokemones):
     cant_pokemones= len(lst_pokemones)
     suma_nivel= 0 
     suma_poder= 0
+    #
     suma_victorias= 0
 
     max_poder= lst_pokemones[0]
