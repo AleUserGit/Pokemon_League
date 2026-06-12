@@ -7,39 +7,33 @@ def opciones_menu():
     print(espacios * " " + titulo + espacios * " ")
     print("=" * ancho)
     
-    print("1. Registrar Pokémon (Alta)")
-    print("2. Eliminar Pokémon (Baja)")
-    print("3. Modificar Pokémon (Modificación)")
+    print("1. Registrar un Pokémon (Alta)")
+    print("2. Eliminar un Pokémon (Baja)")
+    print("3. Modificar atributos del Pokémon (Modificación)")
     print("4. Informe General – Visualización de los datos")
     print("5. Salir")
     
 def ingresar_opcion():
-    opcion_valida = False
-    while not opcion_valida:
-        try:
-            opcion= int(input("Seleccione una opcion: ").strip())
-            while opcion < 1 or opcion > 5:
-                print("La seleccion es invalida. Intentelo de nuevo: ")
-                opcion= int(input("Seleccione otra opcion: ").strip())
-            if opcion >= 1 or opcion <= 5:
-                opcion_valida = True
-        except ValueError:
-            print("Error: no es un número entero")
-        
+    opcion= input("Seleccione una opción: ").strip()
+    while not opcion.isdigit() or (int(opcion) < 1 or int(opcion) > 5):
+                print("Opción no válida. Inténtelo de nuevo: ")
+                opcion= input("Seleccione otra opcion: ").strip()
+    opcion = int(opcion)
     return opcion
 
 
 #Funciones de validación : Alejo
 def validar_nombre(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
-    while nombre == "":
-        print("Error: valor nulo")
+    existe = any(nombre == n[0] for n in lst_pokemones)
+    while nombre == "" or existe:
+        if nombre == "":
+            print("Error: el nombre no puede estar vacío")
+        elif existe:
+            print("Error: el Pokemón ya se encuentra registrado")
         print("--")
         nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
-    for n in lst_pokemones:
-        if nombre == n[0]:
-            print("El Pokemón ya se encuentra registrado")
-            return
+        existe = any(nombre == n[0] for n in lst_pokemones)
     return nombre
 
 def validar_tipo():
@@ -54,35 +48,30 @@ def validar_tipo():
     return tipo
 
 def validar_nivel():
-    nivel_valido = False
-    while not nivel_valido:
-        try:
-            nivel = int(input("Ingrese el nivel (1-100) del Pokemón: ").strip())
-            if 1 <= nivel <= 100:
-                nivel_valido = True
-            else:
-                print("Error: nivel no válido")
-        except ValueError:
-            print("Error: no es un número entero")
+    nivel = input("Ingrese el nivel (1-100) del Pokemón: ").strip()
+    while not nivel.isdigit() or (int(nivel) < 1 or int(nivel) > 100):
+        print("")
+        print("Error: Se requiere un número entero entre 1 y 100")
+        print("--")
+        nivel = input("Ingrese el nivel (1-100) del Pokemón: ").strip()
+    nivel = int(nivel)
     return nivel
 
 def validar_poder():
-    poder_valido = False
-    while not poder_valido:
-        try:
-            poder = int(input("Ingrese el poder del Pokemón: ").strip())
-            if poder > 0:
-                poder_valido = True
-            else:
-                print("Error: poder no válido")
-        except ValueError:
-            print("Error: no es un número entero")
+    poder = input("Ingrese el nivel de poder del Pokemón: ").strip()
+    while not poder.isdigit() or int(poder) <= 0:
+        print("")
+        print("Error: Ingrese un número entero mayor a 0")
+        print("--")
+        poder = input("Ingrese el nivel de poder del Pokemón: ").strip()
+    poder = int(poder)
     return poder
 
 def validar_entrenador():
     entrenador = input("Ingrese nombre del entrenador: ").strip()
     tiene_letras = any(l.isalpha() for l in entrenador)
     while not tiene_letras:
+        print("")
         print("Error: nombre no válido")
         print("--")
         entrenador = input("Ingrese nombre del entrenador: ").strip()
@@ -90,16 +79,13 @@ def validar_entrenador():
     return entrenador
 
 def validar_victoria():
-    victoria_valida = False
-    while not victoria_valida:
-        try:
-            victorias = int(input("Ingrese el número de victorias del Pokemón: ").strip())
-            if victorias >= 0:
-                victoria_valida = True
-            else:
-                print("Error: valor no válido")
-        except ValueError:
-            print("Error: no es un número entero")
+    victorias = input("Ingrese el número de victorias del Pokemón: ").strip()
+    while not victorias.isdigit():
+        print("")
+        print("Error: Se requiere un número mayor a cero")
+        print("--")
+        victorias = input("Ingrese el número de victorias del Pokemón: ").strip()
+    victorias = int(victorias)
     return victorias
 
 def validar_estado():
@@ -118,8 +104,6 @@ def validar_estado():
 def registrar_pokemon(lst_pokemones):
     
     nombre = validar_nombre(lst_pokemones)
-    if nombre is None:
-        return
     tipo = validar_tipo()
     nivel = validar_nivel()
     poder = validar_poder()
@@ -147,7 +131,25 @@ def eliminar_pokemon(lst_pokemones):
         print("No se encontró el Pokemón", nombre)
     else:
         if lst_pokemones[indice][6] == "Liberado":
-            print(lst_pokemones[indice])
+            pokemon= lst_pokemones[indice]
+            print("")   
+            print(f"{'Nombre':<15}"
+                f"{'Tipo':<15}"
+                f"{'Nivel':<10}"
+                f"{'Poder':<10}"
+                f"{'Entrenador':<20}"
+                f"{'Victorias':<12}"
+                f"{'Estado':<15}")
+            print("")
+            print(f"{pokemon[0]:<15}"
+                f"{pokemon[1]:<15}"
+                f"{pokemon[2]:<10}"
+                f"{pokemon[3]:<10}"
+                f"{pokemon[4]:<20}"
+                f"{pokemon[5]:<12}"
+                f"{pokemon[6]:<15}")
+            print("")
+
             eliminar = input("Desea eliminar el Pokemón? (s/n): ").strip().lower()
             while eliminar != "s" and eliminar != "n":
                 print("Ingrese una respuesta válida")
@@ -178,40 +180,37 @@ def modificar_pokemon(lst_pokemones):
         print("No se encontró el Pokemón", mod_pokemon)
     else:
         categoria = ["Nombre", "Tipo", "Nivel", "Poder", "Entrenador", "Victorias", "Estado"]
-        print("Las categorías disponibles son:")
-        print("")
-                
-        print(f"{'Nombre':<15}"
-              f"{'Tipo':<15}"
-              f"{'Nivel':<10}"
-              f"{'Poder':<10}"
-              f"{'Entrenador':<20}"
-              f"{'Victorias':<12}"
-              f"{'Estado':<15}")
-        
+        print("Los atributos disponibles son:")
         pokemon= lst_pokemones[indice]
-
+        print("")   
+        print(f"{'Nombre':<15}"
+            f"{'Tipo':<15}"
+            f"{'Nivel':<10}"
+            f"{'Poder':<10}"
+            f"{'Entrenador':<20}"
+            f"{'Victorias':<12}"
+            f"{'Estado':<15}")
+        print("")
         print(f"{pokemon[0]:<15}"
-              f"{pokemon[1]:<15}"
-              f"{pokemon[2]:<10}"
-              f"{pokemon[3]:<10}"
-              f"{pokemon[4]:<20}"
-              f"{pokemon[5]:<12}"
-              f"{pokemon[6]:<15}")
+            f"{pokemon[1]:<15}"
+            f"{pokemon[2]:<10}"
+            f"{pokemon[3]:<10}"
+            f"{pokemon[4]:<20}"
+            f"{pokemon[5]:<12}"
+            f"{pokemon[6]:<15}")
+        print("")
 
         
         termino = False
         while not termino:
-            cambiar = input("Ingrese la categoría a modificar: ").strip().capitalize()
+            cambiar = input("Ingrese el atributo a modificar: ").strip().capitalize()
             while cambiar not in categoria:
-                print("Categoría no encontrada")
+                print("Atributo no encontrado")
                 print("--")
-                cambiar = input("Ingrese la categoría a modificar: ").strip().capitalize()
+                cambiar = input("Ingrese el atributo a modificar: ").strip().capitalize()
             if cambiar == "Nombre":
-                    nombre = validar_nombre(lst_pokemones)
-                    if nombre is None:
-                        return
-                    lst_pokemones[indice][0] = nombre
+                nombre = validar_nombre(lst_pokemones)
+                lst_pokemones[indice][0] = nombre
             elif cambiar == "Tipo":
                 tipo = validar_tipo()
                 lst_pokemones[indice][1] = tipo
@@ -231,18 +230,34 @@ def modificar_pokemon(lst_pokemones):
                 estado = validar_estado()
                 lst_pokemones[indice][6] = estado
             
+            pokemon= lst_pokemones[indice]
+            print("")   
+            print(f"{'Nombre':<15}"
+                f"{'Tipo':<15}"
+                f"{'Nivel':<10}"
+                f"{'Poder':<10}"
+                f"{'Entrenador':<20}"
+                f"{'Victorias':<12}"
+                f"{'Estado':<15}")
             print("")
-            print(lst_pokemones[indice])
+            print(f"{pokemon[0]:<15}"
+                f"{pokemon[1]:<15}"
+                f"{pokemon[2]:<10}"
+                f"{pokemon[3]:<10}"
+                f"{pokemon[4]:<20}"
+                f"{pokemon[5]:<12}"
+                f"{pokemon[6]:<15}")
             print("")
-            seguir = input("Desea modificar otra categoría? (s/n): ").strip().lower()
+            seguir = input("Desea modificar otro atributo? (s/n): ").strip().lower()
             while seguir != "s" and seguir != "n":
+                print("")
                 print("Ingrese una respuesta válida")
                 print("--")
-                seguir = input("Desea modificar otra categoría? (s/n): ").strip().lower()
+                seguir = input("Desea modificar otro atributo? (s/n): ").strip().lower()
             if seguir == "s":
                 print("Confirmado")
             else:
-                print("Se detuvo la modificación. Se guardaron los cambios")
+                print("Se guardaron los cambios")
                 termino = True
 
     
