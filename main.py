@@ -1,6 +1,7 @@
 from funciones import opciones_menu, ingresar_opcion
 from funciones import registrar_pokemon, eliminar_pokemon, modificar_pokemon, informe_general
 from listas import cargar_pokemones
+from colorama import init, Fore
 
 def main():    
     lst_pokemones = cargar_pokemones()
@@ -10,7 +11,7 @@ def main():
     while opcion != 5:
         
         if opcion == 1:
-            print("REGISTRAR POKEMON")
+            print(Fore.GREEN + "REGISTRAR POKEMON")
             registrar_pokemon(lst_pokemones)       
 
         elif opcion == 2:
