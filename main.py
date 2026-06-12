@@ -6,7 +6,7 @@ from listas import cargar_pokemones
 from colorama import init, Fore
 
 init(autoreset= True)
-'''
+
 def main():   
     lst_pokemones = cargar_pokemones()
     opciones_menu()
@@ -43,3 +43,4 @@ main()
 lst_pokemones = cargar_pokemones()
 #print(reporte_estadistico(lst_pokemones))
 print(reporte_matriz(lst_pokemones))
+'''
