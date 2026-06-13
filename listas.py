@@ -1,4 +1,5 @@
 # lst_pokemones([nombre, tipo, nivel, poder, entrenador, victorias, estado])
+#Función cargar Pokemones: Male
 def cargar_pokemones():
     lst_pokemones = [
         ["Bulbasaur", "Planta", 45, 1880, "Ash", 45, "Entrenamiento"],

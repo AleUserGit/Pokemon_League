@@ -1,5 +1,6 @@
 from colorama import init, Fore
 
+#Funciones de validar: Alejo
 def validar_nombre(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
     #Validar que no esté vacío:
@@ -104,6 +105,7 @@ def validar_estado():
         estado = input("Ingrese el estado del Pokemón: ").strip().capitalize()
     return estado
 
+#Función para Estética al imprimir: Male
 def mostrar_pokemon(pokemon):
     print("")   
     print(f"{'Nombre':<15}"
@@ -123,7 +125,7 @@ def mostrar_pokemon(pokemon):
         f"{pokemon[6]:<15}")
     print("")
 
-# Función 1 -- registrar pokemones : Alejo
+# Función Registrar Pokemones : Alejo
 def registrar_pokemon(lst_pokemones):
     
     nombre, entrenador = validar_nombre(lst_pokemones)
@@ -146,7 +148,7 @@ def registrar_pokemon(lst_pokemones):
     lst_pokemones.append([nombre, tipo, nivel, poder, entrenador, victorias, estado])
     print("Pokemón registrado")
 
-#Funcion 2 -- eliminar : Alejo
+#Función Eliminar Pokemones: Alejo
 def eliminar_pokemon(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip()
     while nombre == "":
@@ -226,7 +228,7 @@ def eliminar_pokemon(lst_pokemones):
 
     
 
-#Funcion 3 -- modificar : Alejo
+#Función Modificar Pokemones: Alejo
 def modificar_pokemon(lst_pokemones):
     mod_pokemon = input("Ingrese el Pokemón que desea modificar: ").strip()
     while mod_pokemon == "":
@@ -390,7 +392,7 @@ def modificar_pokemon(lst_pokemones):
 
 
 
-#Funcion para ordenar los pokemones : Male
+#Función Ordenar los pokemones : Male
 def ordenar_pokemones(lst_pokemones):
 
     for i in range(len(lst_pokemones)-1):
@@ -418,7 +420,7 @@ def ordenar_pokemones(lst_pokemones):
                     lst_pokemones[j+1] = aux
 
 
-# Función 4 -- visualizar : Emi y Lola
+# Función Visualizar la matriz de Pokemones: Emi y Lola
 def informe_general(lst_pokemones):
 
     if len(lst_pokemones) == 0:
@@ -443,7 +445,7 @@ def informe_general(lst_pokemones):
                f"{pokemon[5]:<15}"
                f"{pokemon[6]:<15}")
          
-
+#Función Reporte Estadístico General: Emi y Lola
 def reporte_estadistico(lst_pokemones):
     cant_pokemones= len(lst_pokemones)
     suma_nivel= 0 
@@ -483,7 +485,7 @@ def reporte_estadistico(lst_pokemones):
     print(f"El Pokemon {max_poder[0]} tiene el mayor poder ({ max_poder[3]})")
     print(f"El Pokemon {min_poder[0]} tiene el menor poder ({ min_poder[3]})")
 
-
+#Función Calcular Victorias por tipo: Emi y Lola
 def promedio_victorias_tipo(lst_pokemones):
 
     victoria_fuego= 0
@@ -555,13 +557,13 @@ def promedio_victorias_tipo(lst_pokemones):
     print("Normal", promedio(victoria_normal,cant_normal))
 
  
-
+#Función Promedio: Male
 def promedio(a, b):
     c = a / b
     c = round(c, 2)
     return c
 
-
+#Función Reporte Tipo Vs Estado: Alejo
 def reporte_matriz(lst_pokemones):
     tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
     estados = ["Disponible", "Entrenamiento", "Lesionado", "Liberado"]
@@ -610,7 +612,7 @@ def reporte_matriz(lst_pokemones):
 
 
 
-
+#Función Reporte por tipo de Pokemón: Emi y Lola
 def reporte_por_tipo(lst_pokemones):
     tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
     matriz = []
@@ -639,7 +641,7 @@ def reporte_por_tipo(lst_pokemones):
         print(f"{fila[0]:<15}{fila[1]:<15}{fila[2]:<15}{fila[3]:<15}{fila[4]:<15}")
 
     
-
+#Función Pokemones Competitivos: Alejo 
 def reporte_competitivo(lst_pokemones):
     suma_nvl = 0
     suma_poder = 0
@@ -655,3 +657,4 @@ def reporte_competitivo(lst_pokemones):
     for p in lst_pokemones:
         if p[2] >= nvl_prom and p[3] >= poder_prom and p[6] == "Disponible":
             print(f"{p[0]:<15}{p[1]:<15}{p[2]:<15}{p[3]:<15}{p[4]:<15}{p[5]:<15}")
+
