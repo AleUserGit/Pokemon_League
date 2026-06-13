@@ -40,37 +40,44 @@ def main():
         
         if opcion == 1:
             print(Fore.GREEN + "REGISTRAR POKEMON" + Fore.RESET)
+            print("")
             registrar_pokemon(lst_pokemones)       
 
         elif opcion == 2:
             print(Fore.GREEN + "ELIMINAR POKEMON")
+            print("")
             eliminar_pokemon(lst_pokemones)
           
         elif opcion == 3:
             print(Fore.GREEN + "MODIFICAR POKEMON")
+            print("")
             modificar_pokemon(lst_pokemones)
          
 
         elif opcion == 4:
             print(Fore.GREEN + "VISUALIZACION DE DATOS")
+            print("")
             informe_general(lst_pokemones)
         
         elif opcion == 5:
              print(Fore.GREEN + "REPORTE ESTADÍSTICO GENERAL")
+             print("")
              reporte_estadistico(lst_pokemones)
         
         elif opcion == 6:
              print(Fore.GREEN + "REPORTE POR TIPO DE POKÉMON")
+             print("")
              reporte_por_tipo(lst_pokemones)
 
         elif opcion == 7:
              print(Fore.GREEN + "REPORTE COMPETITIVO")
+             print("")
              reporte_competitivo(lst_pokemones)   
  
-        
+        print("")
         opciones_menu()
         opcion = ingresar_opcion()
-                
+    print("")            
     print(Fore.GREEN + "EL PROGRAMA HA FINALIZADO")
 
 
