@@ -1,30 +1,5 @@
 from colorama import init, Fore
 
-
-#Funciones de menú : Emilia y Lola
-def opciones_menu():
-    ancho= 60
-    titulo= "SISTEMA DE GESTIÓN: POKÉTRAINER LEAGUE"
-    espacios= (ancho - len(titulo))//2
-    print("=" * ancho)
-    print(espacios * " " + titulo + espacios * " ")
-    print("=" * ancho)
-    
-    print(Fore.GREEN + "1. Registrar un Pokémon (Alta)")
-    print(Fore.GREEN + "2. Eliminar un Pokémon (Baja)")
-    print(Fore.GREEN + "3. Modificar atributos del Pokémon (Modificación)")
-    print(Fore.GREEN + "4. Informe General – Visualización de los datos")
-    print(Fore.GREEN + "5. Salir")
-    
-def ingresar_opcion():
-    opcion= input("Seleccione una opción: ").strip()
-    while not opcion.isdigit() or (int(opcion) < 1 or int(opcion) > 5):
-                print(Fore.RED + "Error: opción no válida. Inténtelo de nuevo")
-                opcion= input("Seleccione otra opcion: ").strip()
-    opcion = int(opcion)
-    return opcion
-
-
 #Funciones de validación : Alejo
 def validar_nombre(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
@@ -54,7 +29,7 @@ def validar_tipo():
     tipo = input("Ingrese el tipo del Pokemón: ").strip().capitalize()
     while tipo not in tipos:
         print("")
-        print(Fore.RED + "Error: tipo no válido")
+        print( Fore.RED + "Error: tipo no válido")
         print("--")
         tipo = input("Ingrese el tipo del Pokemón: ").strip().capitalize()
     return tipo
@@ -524,3 +499,127 @@ def reporte_estadistico(lst_pokemones):
     #falta promedio de viotorias por pokemon.
     print(f"El Pokemon {max_poder[0]} tiene el mayor poder ({ max_poder[3]})")
     print(f"El Pokemon {min_poder[0]} tiene el menor poder ({ min_poder[3]})")
+
+'''
+def reporte_tipo(lst_pokemones)
+
+victoria_fuego= 0
+victoria_agua= 0
+victoria_planta= 0
+victoria_electrico= 0
+victoria_psiquico= 0
+victoria_lucha= 0
+victoria_roca= 0
+victoria_fantasma= 0
+victoria_dragon= 0
+victoria_normal= 0
+
+cant_fuego= 0
+cant_agua= 0
+cant_planta= 0
+cant_electrico= 0
+cant_psiquico= 0
+cant_lucha= 0
+cant_roca= 0
+cant_fantasma= 0
+cant_dragon= 0
+cant_normal= 0
+
+for p in lst_pokemones:
+    if p[1] == "Fuego":
+        victoria_fuego = victoria_fuego + p[5]
+        cant_fuego += 1
+    elif p[1] == "Agua":
+        victoria_agua = victoria_agua + p[5]
+        cant_agua += 1
+    elif p[1] == "Planta":
+        victoria_planta = victoria_planta + p[5]
+        cant_planta += 1
+    elif p[1] == "Eléctrico":
+        victoria_electrico = victoria_electrico + p[5]
+        cant_electrico += 1    
+    elif p[1] == "Psíquico":
+        victoria_psiquico = victoria_psiquico + p[5]
+        cant_psiquico += 1
+    elif p[1] == "Lucha":
+        victoria_lucha= victoria_lucha + p[5]
+        cant_lucha += 1
+    elif p[1] == "Roca":
+        victoria_roca= victoria_roca + p[5]
+        cant_roca += 1
+    elif p[1] == "Fantasma":
+        victoria_fantasma= victoria_fantasma + p[5]
+        cant_fantasma += 1
+    elif p[1] == "Dragón":
+        victoria_dragon= victoria_dragon + p[5]
+        cant_dragon += 1
+    elif p[1] == "Normal":
+        victoria_normal= victoria_normal + p[5]
+        cant_normal += 1
+
+#ahora viene la parte de calcular el promedio
+        
+print("El promedios de victorias de cada uno de los tipos de los pokemones es:")
+print("Fuego:", round(victoria_fuego/cant_fuego,2))
+print("Agua:", round(victoria_agua/cant_agua,2))
+print("Planta:", round(victoria_planta/cant_planta,2))
+print("Electrico:", round(victoria_electrico/cant_electrico,2))
+print("Psiquico:", round(victoria_psiquico/cant_psiquico,2))
+print("Lucha:", round(victoria_lucha/cant_lucha,2))
+print("Roca:", round(victoria_roca/cant_roca,2))
+print("Fantasma:", round(victoria_fantasma/cant_fantasma,2))
+print("Dragón", round(victoria_dragon/cant_dragon,2))
+print("Normal", round(victoria_normal/cant_normal,2))
+print("Normal", round(promedio(victoria_normal, cant_normal),2))
+
+''' 
+def promedio(a, b):
+    c = a / b
+    c = round(c, 2)
+    return c
+
+
+def reporte_matriz(lst_pokemones):
+    tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
+    estados = ["Disponible", "Entrenamiento", "Lesionado", "Liberado"]
+    matriz = []
+    
+
+    for t in tipos:
+        fila = [0, 0, 0, 0]
+        matriz.append(fila)
+
+    for p in lst_pokemones:
+        #Recorre cada tipo, buscando coincidencias para p[1] / tipo:
+        indice = 0
+        for t in tipos:
+            if t == p[1]:
+                fila = indice
+            indice +=1
+
+        #Recorre cada estado, buscando coincidencias para p[1] / tipo:
+        indice = 0
+        for e in estados:
+            if e == p[6]:
+                columna = indice    
+            indice += 1
+
+        #Suma 1 a la fila y columna que corresponda en la matriz:
+        matriz[fila][columna] += 1
+
+    print(f"{'Tipo': <12}", end ="")
+    for e in estados:
+        print(f"{e: <12}", end = "")
+    print("Total")
+    
+    fila = 0
+    for t in tipos:
+        total = 0
+        print(f"{t: <12}", end= "")
+        columna = 0
+        for e in estados:
+            print(f"{matriz[fila][columna]: <15}", end="")
+            total += matriz[fila][columna]
+            columna += 1
+        print(total)
+        fila += 1
