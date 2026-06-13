@@ -634,34 +634,32 @@ def reporte_matriz(lst_pokemones):
 
 def reporte_por_tipo(lst_pokemones):
     tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
-    matriz = []  # acá vamos a guardar el resultado final
+    matriz = []
 
-    #el for reinicia los contadores para poderr calculare y recorrer todo por tipo, y esto lo va a hacer con todos los tipos q tenemos en la lista de tipos
-    for tipo in tipos:
-        # contadores y acumuladores
-        cant = 0
-        suma_niveles = 0
+    for t in tipos:
+        cant_pokemon = 0
+        suma_nvl = 0
         suma_poder = 0
         suma_victorias = 0
 
-        # recorrer todos los pokemones
         for p in lst_pokemones:
-            if p[1] == tipo:  # si el tipo coincide
-                # ppara sumar la cantidad de pokemones por tipo
-                cant += 1
-                #esta haciemdo lo mismo
-                suma_niveles += p[2]   
-                suma_poder += p[3]     
-                suma_victorias += p[5] 
+            if p[1] == t:
+                cant_pokemon += 1
+                suma_nvl += p[2]
+                suma_poder += p[3]
+                suma_victorias += p[5]
+        
+        if cant_pokemon > 0:
+            promedio_nivel = promedio(suma_nvl, cant_pokemon)
+            promedio_poder = promedio(suma_poder, cant_pokemon)
+            fila = [t, cant_pokemon, promedio_nivel, promedio_poder, suma_victorias]
+            matriz.append(fila)
+    
+    print(f"{'Tipo':<12}{'Cantidad':<10}{'Nivel Prom.':<14}{'Poder Prom.':<14}{'Victorias':<10}")
+    for fila in matriz:
+        print(f"{fila[0]:<12}{fila[1]:<10}{fila[2]:<14}{fila[3]:<14}{fila[4]:<10}")
 
-        # si hay pokemones de ese tipo, calculamos promedios(esta calculando los promedios para cada porjkemon)
-        if cant > 0:
-            nivel_prom = suma_niveles / cant
-            poder_prom = suma_poder / cant
-            # armamos la fila del reporte de cada uno de los tipos, una fila para un tipo
-            fila = [tipo, cant, nivel_prom, poder_prom, suma_victorias]
-            #esto podriamos probar de recorrerlo con el metodo de alejo para q quede en formato matriz mejor, sin utilizar el formato con estilo
-    return matriz
+    
 
 def reporte_competitivo(lst_pokemones):
     suma_nvl = 0

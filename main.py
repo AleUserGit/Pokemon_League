@@ -62,10 +62,7 @@ def main():
         elif opcion == 6:
              print(Fore.GREEN + "REPORTE POR TIPO DE POKÉMON")
              reporte_por_tipo(lst_pokemones)
-             '''print("Tipo      Cantidad  NivelProm  PoderProm  Victorias")
-             for fila in reporte_por_tipo(lst_pokemones):
-                  print(f"{fila[0]:<10} {fila[1]:<8} {fila[2]:<9.1f} {fila[3]:<10.1f} {fila[4]:<10}")
-            '''
+
         elif opcion == 7:
              print(Fore.GREEN + "REPORTE COMPETITIVO")
              reporte_competitivo(lst_pokemones)   
