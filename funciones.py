@@ -574,6 +574,7 @@ print("Normal", round(promedio(victoria_normal, cant_normal),2))
 ''' 
 def promedio(a, b):
     c = a / b
+    c = round(c, 2)
     return c
 
 
