@@ -475,6 +475,7 @@ def reporte_estadistico(lst_pokemones):
     suma_victorias= 0
     max_poder= lst_pokemones[0]
     min_poder= lst_pokemones[0]
+    max_victorias = lst_pokemones[0]
  
     #p es un pokemon completo de informacion
     for p in lst_pokemones:
@@ -488,6 +489,8 @@ def reporte_estadistico(lst_pokemones):
             max_poder= p
         if p[3] < min_poder[3]:
             min_poder= p
+        if p[5] > max_victorias:
+            max_victorias = p
     promedio_nivel= suma_nivel/cant_pokemones
     promedio_poder= suma_poder/cant_pokemones
 
@@ -496,6 +499,7 @@ def reporte_estadistico(lst_pokemones):
     print("El poder promedio es:", round(promedio_poder, 3))
     print("El total de vistorias es:", suma_victorias)
     promedio_victorias_tipo(lst_pokemones)
+    print(f"El Pokemón {max_victorias[0]} tiene la mayor cantidad de victorias ({max_victorias[5]})")
     print(f"El Pokemon {max_poder[0]} tiene el mayor poder ({ max_poder[3]})")
     print(f"El Pokemon {min_poder[0]} tiene el menor poder ({ min_poder[3]})")
 
@@ -657,25 +661,6 @@ def reporte_por_tipo(lst_pokemones):
             # armamos la fila del reporte de cada uno de los tipos, una fila para un tipo
             fila = [tipo, cant, nivel_prom, poder_prom, suma_victorias]
             #esto podriamos probar de recorrerlo con el metodo de alejo para q quede en formato matriz mejor, sin utilizar el formato con estilo
-
-
-    
-        
-      
-        '''   
-            for f1 in fila:
-                print(fila)
-            
-            columna= 0
-            fila= 0
-            
-            for ti in tipos:
-                matriz= [fila][columna]
-                #esto seria como lo que imprimi arriba pero eso es solo para los tipulos, lo que voy a imprmirahora es los datos de las filas y columas
-                for f1 in fila:
-        '''
-
-
     return matriz
 
 def reporte_competitivo(lst_pokemones):
