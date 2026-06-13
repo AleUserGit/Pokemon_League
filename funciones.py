@@ -623,3 +623,40 @@ def reporte_matriz(lst_pokemones):
             columna += 1
         print(total)
         fila += 1
+
+
+
+
+#pongo tipos en el argumento para que la función sepa qué grupos debe buscar en la lst_pokemones
+def reporte_por_tipo(lst_pokemones):
+    tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
+    matriz = []  # acá vamos a guardar el resultado final
+
+    #el for reinicia los contadores para poderr calculare y recorrer todo por tipo, y esto lo va a hacer con todos los tipos q tenemos en la lista de tipos
+    for tipo in tipos:
+        # contadores y acumuladores
+        cant = 0
+        suma_niveles = 0
+        suma_poder = 0
+        suma_victorias = 0
+
+        # recorrer todos los pokemones
+        for p in lst_pokemones:
+            if p[1] == tipo:  # si el tipo coincide
+                # ppara sumar la cantidad de pokemones por tipo
+                cant += 1
+                #esta haciemdo lo mismo
+                suma_niveles += p[2]   
+                suma_poder += p[3]     
+                suma_victorias += p[5] 
+
+        # si hay pokemones de ese tipo, calculamos promedios(esta calculando los promedios para cada porjkemon)
+        if cant > 0:
+            nivel_prom = suma_niveles / cant
+            poder_prom = suma_poder / cant
+            # armamos la fila del reporte de cada uno de los tipos, una fila para un tipo
+            fila = [tipo, cant, nivel_prom, poder_prom, suma_victorias]
+            #esto podriamos probar de recorrerlo con el metodo de alejo para q quede en formato matriz mejor, sin utilizar el formato con estilo
+            matriz.append(fila)
+
+    return matriz
