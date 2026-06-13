@@ -1,4 +1,4 @@
-from funciones import registrar_pokemon, eliminar_pokemon, modificar_pokemon, informe_general
+from funciones import registrar_pokemon, eliminar_pokemon, modificar_pokemon, informe_general, mostrar_pokemon
 from funciones import reporte_estadistico, reporte_matriz, promedio, promedio_victorias_tipo, reporte_por_tipo
 from listas import cargar_pokemones
 from colorama import init, Fore
@@ -71,6 +71,10 @@ lst_pokemones = cargar_pokemones()
 #(pokemones, tipos) es el argumento de la funcion y como estoy metiendo la funcion en una variable lo tengo que poner
 
   #esto es para el formato con estilo , no formato alejo
+
 print("Tipo      Cantidad  NivelProm  PoderProm  Victorias")
 for fila in reporte_por_tipo(lst_pokemones):
         print(f"{fila[0]:<10} {fila[1]:<8} {fila[2]:<9.1f} {fila[3]:<10.1f} {fila[4]:<10}")
+
+
+
