@@ -16,12 +16,14 @@ def opciones_menu():
     print(Fore.GREEN + "2. Eliminar un Pokémon (Baja)")
     print(Fore.GREEN + "3. Modificar atributos del Pokémon (Modificación)")
     print(Fore.GREEN + "4. Informe General – Visualización de los datos")
-    print(Fore.GREEN + "5. Salir")
+    print(Fore.GREEN + "5. Reporte Estadístico General")
+    print(Fore.GREEN + "6. Reporte por Tipo de Pokémon")
+    print(Fore.GREEN + "7. Salir")
 
 #Funciones de menú: Emi y Lola    
 def ingresar_opcion():
     opcion= input("Seleccione una opción: ").strip()
-    while not opcion.isdigit() or (int(opcion) < 1 or int(opcion) > 5):
+    while not opcion.isdigit() or (int(opcion) < 1 or int(opcion) > 7):
                 print(Fore.RED + "Error: opción no válida. Inténtelo de nuevo")
                 opcion= input("Seleccione otra opcion: ").strip()
     opcion = int(opcion)
@@ -33,7 +35,7 @@ def main():
     opciones_menu()
     opcion = ingresar_opcion()
 
-    while opcion != 5:
+    while opcion != 7:
         
         if opcion == 1:
             print(Fore.GREEN + "REGISTRAR POKEMON" + Fore.RESET)
@@ -51,6 +53,15 @@ def main():
         elif opcion == 4:
             print(Fore.GREEN + "VISUALIZACION DE DATOS")
             informe_general(lst_pokemones)
+        
+        elif opcion == 5:
+             print(Fore.GREEN + "REPORTE ESTADÍSTICO GENERAL")
+             reporte_estadistico(lst_pokemones)
+        
+        elif opcion == 6:
+             print(Fore.GREEN + "REPORTE POR TIPO DE POKÉMON")
+             reporte_por_tipo(lst_pokemones)
+             
         
         opciones_menu()
         opcion = ingresar_opcion()
