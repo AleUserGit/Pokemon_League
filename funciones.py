@@ -180,6 +180,7 @@ def eliminar_pokemon(lst_pokemones):
     if indice == -1:
         print(Fore.RED + "Error: no se encontró el Pokemón", nombre)
     elif coincide == 1:
+        
         if lst_pokemones[indice][6] == "Liberado":
             pokemon= lst_pokemones[indice]
             mostrar_pokemon(pokemon)
@@ -202,6 +203,7 @@ def eliminar_pokemon(lst_pokemones):
             if n[0].capitalize() == nombre.capitalize():
                 print(f"Pokemón: {n[0]} / Entrenador: {n[4]}")
 
+        #Como hay más de un Pokemón con ese nombre, hay que elegir por entrenador
         print("")
         entrenador = validar_entrenador()
         indice = -1
@@ -221,6 +223,7 @@ def eliminar_pokemon(lst_pokemones):
                     indice = i
                 i += 1
 
+        #Repite el proceso de vir si es Liberado
         if lst_pokemones[indice][6] == "Liberado":
             pokemon = lst_pokemones[indice]
             mostrar_pokemon(pokemon)
@@ -248,6 +251,7 @@ def modificar_pokemon(lst_pokemones):
         print("--")
         mod_pokemon = input("Ingrese el Pokemón que desea modificar: ").strip()
     
+    #Si encuentra un Pokemón, revisa si se repite
     coincide = 0
     indice = -1
     i = 0
@@ -260,12 +264,12 @@ def modificar_pokemon(lst_pokemones):
     if indice == -1:
         print(Fore.RED + "Error: no se encontró el Pokemón", mod_pokemon)
     elif coincide == 1:
-        categoria = ["Nombre", "Tipo", "Nivel", "Poder", "Entrenador", "Victorias", "Estado"]
-        print("Los atributos disponibles son:")
+        atributos = ["Nombre", "Tipo", "Nivel", "Poder", "Entrenador", "Victorias", "Estado"]
+        print("Los atributos disponibles son:", atributos)
         pokemon = lst_pokemones[indice]
         mostrar_pokemon(pokemon)
 
-        
+        #Usa la confirmación para entrar al while
         seguir = input("Desea realizar una modificación en este Pokemón? (s/n): ").strip().lower()
         while seguir != "s" and seguir != "n":
                 print("")
@@ -278,10 +282,11 @@ def modificar_pokemon(lst_pokemones):
         else:
             while seguir == "s":
                 cambiar = input("Ingrese el atributo a modificar: ").strip().capitalize()
-                while cambiar not in categoria:
+                while cambiar not in atributos:
                     print(Fore.RED + "Error: atributo no encontrado")
                     print("--")
                     cambiar = input("Ingrese el atributo a modificar: ").strip().capitalize()
+                #Ejecuta algo distinto según qué se eligió en cambiar
                 if cambiar == "Nombre":
                     nombre, entrenador = validar_nombre(lst_pokemones)
                     lst_pokemones[indice][0] = nombre
@@ -303,7 +308,7 @@ def modificar_pokemon(lst_pokemones):
                 elif cambiar == "Estado":
                     estado = validar_estado()
                     lst_pokemones[indice][6] = estado
-                
+                #Muestra el cambio
                 pokemon= lst_pokemones[indice]
                 mostrar_pokemon(pokemon)
 
@@ -324,6 +329,7 @@ def modificar_pokemon(lst_pokemones):
             if n[0].capitalize() == mod_pokemon.capitalize():
                 print(f"Pokemón: {n[0]} / Entrenador: {n[4]}")
 
+        #Como hay más de un Pokemón con ese nombre, debe confirmar cuál usar en base al entrenador
         print("")
         entrenador = validar_entrenador()
         indice = -1
@@ -344,8 +350,8 @@ def modificar_pokemon(lst_pokemones):
                 i += 1
         
         print("")
-        categoria = ["Nombre", "Tipo", "Nivel", "Poder", "Entrenador", "Victorias", "Estado"]
-        print("Los atributos disponibles son:")
+        atributos = ["Nombre", "Tipo", "Nivel", "Poder", "Entrenador", "Victorias", "Estado"]
+        print("Los atributos disponibles son:", atributos)
         pokemon = lst_pokemones[indice]
         mostrar_pokemon(pokemon)
         
@@ -361,7 +367,7 @@ def modificar_pokemon(lst_pokemones):
         else:
             while seguir == "s":
                 cambiar = input("Ingrese el atributo a modificar: ").strip().capitalize()
-                while cambiar not in categoria:
+                while cambiar not in atributos:
                     print(Fore.RED + "Error: atributo no encontrado")
                     print("--")
                     cambiar = input("Ingrese el atributo a modificar: ").strip().capitalize()
@@ -579,31 +585,34 @@ def promedio(a, b):
 
 #Función Reporte Tipo Vs Estado: Alejo
 def reporte_matriz(lst_pokemones):
+    #La matriz compara entre dos atributos
     tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
     estados = ["Disponible", "Entrenamiento", "Lesionado", "Liberado"]
     matriz = []
     
-
+    #Crear una matriz, una fila de ceros por cada tipo
     for t in tipos:
         fila = [0, 0, 0, 0]
         matriz.append(fila)
 
     for p in lst_pokemones:
-        #Recorre cada tipo, buscando coincidencias para p[1] / tipo:
+        #Recorre cada tipo:
+        #Le asigna un número (índice) de fila cuando el tipo coincide con el del Pokemón
         indice = 0
         for t in tipos:
             if t == p[1]:
                 fila = indice
             indice +=1
 
-        #Recorre cada estado, buscando coincidencias para p[1] / tipo:
+        #Recorre cada estado:
+        #Le asigna un número (índice) de fila cuando el estado coincide con el del Pokemón
         indice = 0
         for e in estados:
             if e == p[6]:
                 columna = indice    
             indice += 1
 
-        #Suma 1 a la fila y columna que corresponda en la matriz:
+        #Suma 1 a la fila y columna que corresponda al tipo y estado del Pokemón en la matriz:
         matriz[fila][columna] += 1
 
     print(f"{'Tipo': <12}", end ="")
@@ -611,6 +620,7 @@ def reporte_matriz(lst_pokemones):
         print(f"{e: <12}", end = "")
     print("Total")
     
+    #Por cada índice de tipo (fila) suma los números de cada índice de estado (columna) y lo agrega al total
     fila = 0
     for t in tipos:
         total = 0
@@ -657,16 +667,18 @@ def reporte_por_tipo(lst_pokemones):
     
 #Función Pokemones Competitivos: Alejo 
 def reporte_competitivo(lst_pokemones):
+    #Suma los niveles y poder de cada Pokemón
     suma_nvl = 0
     suma_poder = 0
     for p in lst_pokemones:
         suma_nvl += p[2]
         suma_poder += p[3]
-
+    #Averigua promedios y cantidades
     cant_pokemon = len(lst_pokemones)
     nvl_prom = promedio(suma_nvl, cant_pokemon)
     poder_prom = promedio(suma_poder, cant_pokemon)
 
+    
     print(f"{'Nombre':<15}{'Tipo':<15}{'Nivel':<15}{'Poder':<15}{'Entrenador':<15}{'Victorias':<15}")
     for p in lst_pokemones:
         if p[2] >= nvl_prom and p[3] >= poder_prom and p[6] == "Disponible":
