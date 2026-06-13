@@ -472,10 +472,13 @@ def reporte_estadistico(lst_pokemones):
     promedio_poder= suma_poder/cant_pokemones
 
     print(f"Hay un total de {cant_pokemones} Pokemones")
+    print("--")
     print("El nivel promedio es:", round(promedio_nivel, 3))
     print("El poder promedio es:", round(promedio_poder, 3))
-    print("El total de vistorias es:", suma_victorias)
+    print("El total de victorias es:", suma_victorias)
+    print("")
     promedio_victorias_tipo(lst_pokemones)
+    print("")
     print(f"El Pokemón {max_victorias[0]} tiene la mayor cantidad de victorias ({max_victorias[5]})")
     print(f"El Pokemon {max_poder[0]} tiene el mayor poder ({ max_poder[3]})")
     print(f"El Pokemon {min_poder[0]} tiene el menor poder ({ min_poder[3]})")
