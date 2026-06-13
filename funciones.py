@@ -651,3 +651,6 @@ def reporte_competitivo(lst_pokemones):
     poder_prom = promedio(suma_poder, cant_pokemon)
 
     print(f"{'Nombre':<15}{'Tipo':<15}{'Nivel':<15}{'Poder':<15}{'Entrenador':<15}{'Victorias':<15}")
+    for p in lst_pokemones:
+        if p[2] > nvl_prom and p[3] > poder_prom and p[6] == "Disponible":
+            print(f"{p[0]:<15}{p[1]:<15}{p[2]:<10}{p[3]:<10}{p[4]:<20}{p[5]:<12}")
