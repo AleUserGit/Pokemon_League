@@ -1,4 +1,4 @@
-from funciones import registrar_pokemon, eliminar_pokemon, modificar_pokemon, informe_general
+from funciones import registrar_pokemon, eliminar_pokemon, modificar_pokemon, informe_general, reporte_competitivo
 from funciones import reporte_estadistico, reporte_matriz, promedio, promedio_victorias_tipo, reporte_por_tipo
 from listas import cargar_pokemones
 from colorama import init, Fore
@@ -18,12 +18,13 @@ def opciones_menu():
     print(Fore.GREEN + "4. Informe General – Visualización de los datos")
     print(Fore.GREEN + "5. Reporte Estadístico General")
     print(Fore.GREEN + "6. Reporte por Tipo de Pokémon")
-    print(Fore.GREEN + "7. Salir")
+    print(Fore.GREEN + "7. Reporte Competitivo")
+    print(Fore.GREEN + "8. Salir")
 
 #Funciones de menú: Emi y Lola    
 def ingresar_opcion():
     opcion= input("Seleccione una opción: ").strip()
-    while not opcion.isdigit() or (int(opcion) < 1 or int(opcion) > 7):
+    while not opcion.isdigit() or (int(opcion) < 1 or int(opcion) > 8):
                 print(Fore.RED + "Error: opción no válida. Inténtelo de nuevo")
                 opcion= input("Seleccione otra opcion: ").strip()
     opcion = int(opcion)
@@ -35,7 +36,7 @@ def main():
     opciones_menu()
     opcion = ingresar_opcion()
 
-    while opcion != 7:
+    while opcion != 8:
         
         if opcion == 1:
             print(Fore.GREEN + "REGISTRAR POKEMON" + Fore.RESET)
@@ -61,31 +62,19 @@ def main():
         elif opcion == 6:
              print(Fore.GREEN + "REPORTE POR TIPO DE POKÉMON")
              reporte_por_tipo(lst_pokemones)
-             #esto es para el formato con estilo , no formato alejo
-             print("Tipo      Cantidad  NivelProm  PoderProm  Victorias")
+             '''print("Tipo      Cantidad  NivelProm  PoderProm  Victorias")
              for fila in reporte_por_tipo(lst_pokemones):
                   print(f"{fila[0]:<10} {fila[1]:<8} {fila[2]:<9.1f} {fila[3]:<10.1f} {fila[4]:<10}")
-
-             
+            '''
+        elif opcion == 7:
+             print(Fore.GREEN + "REPORTE COMPETITIVO")
+             reporte_competitivo(lst_pokemones)   
+ 
         
         opciones_menu()
         opcion = ingresar_opcion()
                 
-    print("EL PROGRAMA HA FINALIZADO")
+    print(Fore.GREEN + "EL PROGRAMA HA FINALIZADO")
 
 
 main()
-
-
-lst_pokemones = cargar_pokemones()
-#reporte_estadistico(lst_pokemones)
-#reporte_matriz(lst_pokemones)
-
-#estoy cargando los pokemones porque los necesito tener para recorrerlos con el for, los estoy llamando a la list
-
-#(pokemones, tipos) es el argumento de la funcion y como estoy metiendo la funcion en una variable lo tengo que poner
-
-  #esto es para el formato con estilo , no formato alejo
-print("Tipo      Cantidad  NivelProm  PoderProm  Victorias")
-for fila in reporte_por_tipo(lst_pokemones):
-        print(f"{fila[0]:<10} {fila[1]:<8} {fila[2]:<9.1f} {fila[3]:<10.1f} {fila[4]:<10}")
