@@ -422,7 +422,7 @@ def ordenar_pokemones(lst_pokemones):
 def informe_general(lst_pokemones):
 
     if len(lst_pokemones) == 0:
-        print("No hay Pokémon registrados.")
+        print(Fore.RED + "Error: No hay Pokémon registrados.")
         return
 
     ordenar_pokemones(lst_pokemones)
