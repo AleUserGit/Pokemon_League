@@ -569,9 +569,12 @@ print("Roca:", round(victoria_roca/cant_roca,2))
 print("Fantasma:", round(victoria_fantasma/cant_fantasma,2))
 print("Dragón", round(victoria_dragon/cant_dragon,2))
 print("Normal", round(victoria_normal/cant_normal,2))
+print("Normal", round(promedio(victoria_normal, cant_normal),2))
 
 ''' 
-
+def promedio(a, b):
+    c = a / b
+    return c
 
 
 def reporte_matriz(lst_pokemones):
