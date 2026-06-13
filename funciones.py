@@ -638,3 +638,16 @@ def reporte_por_tipo(lst_pokemones):
             matriz.append(fila)
 
     return matriz
+
+def reporte_competitivo(lst_pokemones):
+    suma_nvl = 0
+    suma_poder = 0
+    for p in lst_pokemones:
+        suma_nvl += p[2]
+        suma_poder += p[3]
+
+    cant_pokemon = len(lst_pokemones)
+    nvl_prom = promedio(suma_nvl, cant_pokemon)
+    poder_prom = promedio(suma_poder, cant_pokemon)
+
+    print(f"{'Nombre':<15}{'Tipo':<15}{'Nivel':<15}{'Poder':<15}{'Entrenador':<15}{'Victorias':<15}")
