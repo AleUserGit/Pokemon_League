@@ -657,10 +657,10 @@ def reporte_por_tipo(lst_pokemones):
             # armamos la fila del reporte de cada uno de los tipos, una fila para un tipo
             fila = [tipo, cant, nivel_prom, poder_prom, suma_victorias]
             #esto podriamos probar de recorrerlo con el metodo de alejo para q quede en formato matriz mejor, sin utilizar el formato con estilo
-    
-    
 
-      
+
+    
+        
       
         '''   
             for f1 in fila:

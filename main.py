@@ -62,6 +62,11 @@ def main():
         elif opcion == 6:
              print(Fore.GREEN + "REPORTE POR TIPO DE POKÉMON")
              reporte_por_tipo(lst_pokemones)
+             #esto es para el formato con estilo , no formato alejo
+             print("Tipo      Cantidad  NivelProm  PoderProm  Victorias")
+             for fila in reporte_por_tipo(lst_pokemones):
+                  print(f"{fila[0]:<10} {fila[1]:<8} {fila[2]:<9.1f} {fila[3]:<10.1f} {fila[4]:<10}")
+
              
         
         opciones_menu()
@@ -72,9 +77,7 @@ def main():
 
 main()
 
-print("Tipo      Cantidad  NivelProm  PoderProm  Victorias")
-for fila in reporte_por_tipo(lst_pokemones):
-    print(f"{fila[0]:<10} {fila[1]:<8} {fila[2]:<9.1f} {fila[3]:<10.1f} {fila[4]:<10}")
+
 
 
 
