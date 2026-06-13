@@ -625,10 +625,11 @@ def reporte_matriz(lst_pokemones):
         fila += 1
 
 
-tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
 
 
-def reporte_por_tipo(lst_pokemones, tipos):
+
+def reporte_por_tipo(lst_pokemones):
+    tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
     matriz = []  # acá vamos a guardar el resultado final
 
     #el for reinicia los contadores para poderr calculare y recorrer todo por tipo, y esto lo va a hacer con todos los tipos q tenemos en la lista de tipos
@@ -656,6 +657,26 @@ def reporte_por_tipo(lst_pokemones, tipos):
             # armamos la fila del reporte de cada uno de los tipos, una fila para un tipo
             fila = [tipo, cant, nivel_prom, poder_prom, suma_victorias]
             #esto podriamos probar de recorrerlo con el metodo de alejo para q quede en formato matriz mejor, sin utilizar el formato con estilo
-            matriz.append(fila)
+    
+    
+
+      
+      
+        '''   
+            for f1 in fila:
+                print(fila)
+            
+            columna= 0
+            fila= 0
+            
+            for ti in tipos:
+                matriz= [fila][columna]
+                #esto seria como lo que imprimi arriba pero eso es solo para los tipulos, lo que voy a imprmirahora es los datos de las filas y columas
+                for f1 in fila:
+        '''
+
 
     return matriz
+
+
+
