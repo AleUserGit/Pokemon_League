@@ -108,18 +108,18 @@ def mostrar_pokemon(pokemon):
     print("")   
     print(f"{'Nombre':<15}"
         f"{'Tipo':<15}"
-        f"{'Nivel':<10}"
-        f"{'Poder':<10}"
-        f"{'Entrenador':<20}"
-        f"{'Victorias':<12}"
+        f"{'Nivel':<15}"
+        f"{'Poder':<15}"
+        f"{'Entrenador':<15}"
+        f"{'Victorias':<15}"
         f"{'Estado':<15}")
     print("")
     print(f"{pokemon[0]:<15}"
         f"{pokemon[1]:<15}"
-        f"{pokemon[2]:<10}"
-        f"{pokemon[3]:<10}"
-        f"{pokemon[4]:<20}"
-        f"{pokemon[5]:<12}"
+        f"{pokemon[2]:<15}"
+        f"{pokemon[3]:<15}"
+        f"{pokemon[4]:<15}"
+        f"{pokemon[5]:<15}"
         f"{pokemon[6]:<15}")
     print("")
 
@@ -428,19 +428,19 @@ def informe_general(lst_pokemones):
     ordenar_pokemones(lst_pokemones)
     print(f"{'Nombre':<15}"
           f"{'Tipo':<15}"
-          f"{'Nivel':<10}"
-          f"{'Poder':<10}"
-          f"{'Entrenador':<20}"
-          f"{'Victorias':<12}"
+          f"{'Nivel':<15}"
+          f"{'Poder':<15}"
+          f"{'Entrenador':<15}"
+          f"{'Victorias':<15}"
           f"{'Estado':<15}")
 
     for pokemon in lst_pokemones:
          print(f"{pokemon[0]:<15}"
                f"{pokemon[1]:<15}"
-               f"{pokemon[2]:<10}"
-               f"{pokemon[3]:<10}"
-               f"{pokemon[4]:<20}"
-               f"{pokemon[5]:<12}"
+               f"{pokemon[2]:<15}"
+               f"{pokemon[3]:<15}"
+               f"{pokemon[4]:<15}"
+               f"{pokemon[5]:<15}"
                f"{pokemon[6]:<15}")
          
 
@@ -550,7 +550,6 @@ def promedio_victorias_tipo(lst_pokemones):
     print("Fantasma:", promedio(victoria_fantasma,cant_fantasma))
     print("Dragón", promedio(victoria_dragon,cant_dragon))
     print("Normal", promedio(victoria_normal,cant_normal))
-    print("Normal", promedio(victoria_normal, cant_normal))
 
  
 
@@ -632,9 +631,9 @@ def reporte_por_tipo(lst_pokemones):
             fila = [t, cant_pokemon, promedio_nivel, promedio_poder, suma_victorias]
             matriz.append(fila)
     
-    print(f"{'Tipo':<12}{'Cantidad':<10}{'Nivel Prom.':<14}{'Poder Prom.':<14}{'Victorias':<10}")
+    print(f"{'Tipo':<15}{'Cantidad':<15}{'Nivel Prom.':<15}{'Poder Prom.':<15}{'Victorias':<15}")
     for fila in matriz:
-        print(f"{fila[0]:<12}{fila[1]:<10}{fila[2]:<14}{fila[3]:<14}{fila[4]:<10}")
+        print(f"{fila[0]:<15}{fila[1]:<15}{fila[2]:<15}{fila[3]:<15}{fila[4]:<15}")
 
     
 
@@ -652,4 +651,4 @@ def reporte_competitivo(lst_pokemones):
     print(f"{'Nombre':<15}{'Tipo':<15}{'Nivel':<15}{'Poder':<15}{'Entrenador':<15}{'Victorias':<15}")
     for p in lst_pokemones:
         if p[2] >= nvl_prom and p[3] >= poder_prom and p[6] == "Disponible":
-            print(f"{p[0]:<15}{p[1]:<15}{p[2]:<10}{p[3]:<10}{p[4]:<20}{p[5]:<12}")
+            print(f"{p[0]:<15}{p[1]:<15}{p[2]:<15}{p[3]:<15}{p[4]:<15}{p[5]:<15}")
