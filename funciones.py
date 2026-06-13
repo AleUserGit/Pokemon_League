@@ -427,6 +427,7 @@ def informe_general(lst_pokemones):
         print(Fore.RED + "Error: No hay Pokémon registrados.")
         return
 
+    #Armamos la tabla, utilizando formatos
     ordenar_pokemones(lst_pokemones)
     print(f"{'Nombre':<15}"
           f"{'Tipo':<15}"
@@ -448,28 +449,30 @@ def informe_general(lst_pokemones):
 #Función Reporte Estadístico General: Emi y Lola
 def reporte_estadistico(lst_pokemones):
     cant_pokemones= len(lst_pokemones)
+    
     suma_nivel= 0 
     suma_poder= 0
-    #esto sirve tmb para hacer el total de las victorias para dividir en los p y el promedio de cada tipo
     suma_victorias= 0
+    
     max_poder= lst_pokemones[0]
     min_poder= lst_pokemones[0]
     max_victorias = lst_pokemones[0]
  
-    #p es un pokemon completo de informacion
+   
     for p in lst_pokemones:
         suma_nivel= suma_nivel + p[2]
         suma_poder= suma_poder + p[3]
         suma_victorias= suma_victorias + p[5]
-        #print directo hago el promedio de los dos separdo
     
-        #en la primera vuelta los dos sun iguales entonces no cambia nada
+        #comparamos el valor del pokemon con los datos que guardamos 
         if p[3] > max_poder[3]:
             max_poder= p
         if p[3] < min_poder[3]:
             min_poder= p
         if p[5] > max_victorias[5]:
             max_victorias = p
+
+            
     promedio_nivel= suma_nivel/cant_pokemones
     promedio_poder= suma_poder/cant_pokemones
 
@@ -542,8 +545,7 @@ def promedio_victorias_tipo(lst_pokemones):
             victoria_normal= victoria_normal + p[5]
             cant_normal += 1
 
-    #ahora viene la parte de calcular el promedio
-            
+    #calcula el promedio        
     print("El promedios de victorias de cada uno de los tipos de los pokemones es:")
     print("Fuego:", promedio(victoria_fuego, cant_fuego))
     print("Agua:", promedio(victoria_agua,cant_agua))
