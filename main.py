@@ -1,9 +1,9 @@
 from funciones import registrar_pokemon, eliminar_pokemon, modificar_pokemon, informe_general
-from funciones import reporte_estadistico, reporte_matriz
+from funciones import reporte_estadistico, reporte_matriz, promedio, promedio_victorias_tipo
 from listas import cargar_pokemones
 from colorama import init, Fore
 init(autoreset= True)
-
+'''
 #Funciones de menú: Emi y Lola
 def opciones_menu():
     ancho= 60
@@ -63,6 +63,5 @@ main()
 
 '''
 lst_pokemones = cargar_pokemones()
-print(reporte_estadistico(lst_pokemones))
-reporte_matriz(lst_pokemones)
-'''
+reporte_estadistico(lst_pokemones)
+#reporte_matriz(lst_pokemones)
