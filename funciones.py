@@ -489,7 +489,7 @@ def reporte_estadistico(lst_pokemones):
             max_poder= p
         if p[3] < min_poder[3]:
             min_poder= p
-        if p[5] > max_victorias:
+        if p[5] > max_victorias[5]:
             max_victorias = p
     promedio_nivel= suma_nivel/cant_pokemones
     promedio_poder= suma_poder/cant_pokemones
