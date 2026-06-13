@@ -6,6 +6,7 @@ init(autoreset= True)
 
 #Funciones para el menú: Emi y Lola
 def opciones_menu():
+    #formato del titulo
     ancho= 60
     titulo= "SISTEMA DE GESTIÓN: POKÉTRAINER LEAGUE"
     espacios= (ancho - len(titulo))//2
@@ -13,6 +14,7 @@ def opciones_menu():
     print(espacios * " " + titulo + espacios * " ")
     print("=" * ancho)
     
+    #formato del menu
     print(Fore.GREEN + "1. Registrar un Pokémon (Alta)")
     print(Fore.GREEN + "2. Eliminar un Pokémon (Baja)")
     print(Fore.GREEN + "3. Modificar atributos del Pokémon (Modificación)")
@@ -21,9 +23,10 @@ def opciones_menu():
     print(Fore.GREEN + "6. Reporte por Tipo de Pokémon")
     print(Fore.GREEN + "7. Reporte Competitivo")
     print(Fore.GREEN + "8. Salir")
-    
+       
 def ingresar_opcion():
     opcion= input("Seleccione una opción: ").strip()
+    #guarda el rango para que las opciones fuera de 1 y 8 no sean validas
     while not opcion.isdigit() or (int(opcion) < 1 or int(opcion) > 8):
                 print(Fore.RED + "Error: opción no válida. Inténtelo de nuevo")
                 opcion= input("Seleccione otra opcion: ").strip()
@@ -38,6 +41,7 @@ def main():
 
     while opcion != 8:
         
+        #anlisis de opcion
         if opcion == 1:
             print(Fore.GREEN + "REGISTRAR POKEMON" + Fore.RESET)
             print("")

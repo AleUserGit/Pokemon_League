@@ -476,7 +476,7 @@ def reporte_estadistico(lst_pokemones):
     min_poder= lst_pokemones[0]
     max_victorias = lst_pokemones[0]
  
-   
+   #calcula la suma total para los tres
     for p in lst_pokemones:
         suma_nivel= suma_nivel + p[2]
         suma_poder= suma_poder + p[3]
@@ -490,7 +490,7 @@ def reporte_estadistico(lst_pokemones):
         if p[5] > max_victorias[5]:
             max_victorias = p
 
-            
+
     promedio_nivel= suma_nivel/cant_pokemones
     promedio_poder= suma_poder/cant_pokemones
 
@@ -531,6 +531,7 @@ def promedio_victorias_tipo(lst_pokemones):
     cant_dragon= 0
     cant_normal= 0
 
+    #compara el tipo del pokemon con todos los tipos
     for p in lst_pokemones:
         if p[1] == "Fuego":
             victoria_fuego = victoria_fuego + p[5]
@@ -563,7 +564,7 @@ def promedio_victorias_tipo(lst_pokemones):
             victoria_normal= victoria_normal + p[5]
             cant_normal += 1
 
-    #calcula el promedio        
+    #calcula el promedio para cada tipo       
     print("El promedios de victorias de cada uno de los tipos de los pokemones es:")
     print("Fuego:", promedio(victoria_fuego, cant_fuego))
     print("Agua:", promedio(victoria_agua,cant_agua))
@@ -641,12 +642,14 @@ def reporte_por_tipo(lst_pokemones):
     tipos = ["Fuego", "Agua", "Planta", "Eléctrico", "Psíquico", "Lucha", "Roca", "Fantasma", "Dragón", "Normal"]
     matriz = []
 
+    #reinicia los contadores para cada tipo
     for t in tipos:
         cant_pokemon = 0
         suma_nvl = 0
         suma_poder = 0
         suma_victorias = 0
 
+        #recorre cada pokemon y compara si el tipo es igaul al tipo del for
         for p in lst_pokemones:
             if p[1] == t:
                 cant_pokemon += 1
@@ -657,6 +660,7 @@ def reporte_por_tipo(lst_pokemones):
         if cant_pokemon > 0:
             promedio_nivel = promedio(suma_nvl, cant_pokemon)
             promedio_poder = promedio(suma_poder, cant_pokemon)
+            #guarda los valores del tipo que recorrimos con cada pokemon
             fila = [t, cant_pokemon, promedio_nivel, promedio_poder, suma_victorias]
             matriz.append(fila)
     
