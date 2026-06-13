@@ -3,7 +3,7 @@ from colorama import init, Fore
 #Funciones de validar: Alejo
 def validar_nombre(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
-    #Validar que no esté vacío:
+    #Validar que no esté vacío y si se repite
     while nombre == "":
             print("")
             print(Fore.RED + "Error: el nombre no puede estar vacío")
@@ -15,6 +15,8 @@ def validar_nombre(lst_pokemones):
         if nombre == n[0]:
             existe = True
     
+
+    #Si el Pokemón existe, pide dato del entrenador para separar el nuevo del que ya está cargado
     entrenador = ""
     if existe:
         entrenador = validar_entrenador()
@@ -47,6 +49,7 @@ def validar_tipo():
 
 def validar_nivel():
     nivel = input("Ingrese el nivel (1-100) del Pokemón: ").strip()
+    #Valida que sea un número y que esté dentro del rango
     while not nivel.isdigit() or (int(nivel) < 1 or int(nivel) > 100):
         print("")
         print(Fore.RED + "Error: Se requiere un número entero entre 1 y 100")
@@ -57,6 +60,7 @@ def validar_nivel():
 
 def validar_poder():
     poder = input("Ingrese el nivel de poder del Pokemón: ").strip()
+    #Valida que sea un número y que esté dentro del rango
     while not poder.isdigit() or int(poder) <= 0:
         print("")
         print(Fore.RED + "Error: Ingrese un número entero mayor a 0")
@@ -67,6 +71,7 @@ def validar_poder():
 
 def validar_entrenador():
     entrenador = input("Ingrese nombre del entrenador: ").strip()
+    #Valida que tenga letras o esté vacío
     tiene_letras = False
     for l in entrenador:
         if l.isalpha():
@@ -85,6 +90,7 @@ def validar_entrenador():
 
 def validar_victoria():
     victorias = input("Ingrese el número de victorias del Pokemón: ").strip()
+    #Valida que sea un número
     while not victorias.isdigit():
         print("")
         print(Fore.RED + "Error: Se requiere un número mayor a cero")
@@ -107,7 +113,8 @@ def validar_estado():
 
 #Función para Estética al imprimir: Male
 def mostrar_pokemon(pokemon):
-    print("")   
+    # :<15 define que el espacio sea de 15 caracteres
+    print("")
     print(f"{'Nombre':<15}"
         f"{'Tipo':<15}"
         f"{'Nivel':<15}"
@@ -132,14 +139,17 @@ def registrar_pokemon(lst_pokemones):
     tipo = validar_tipo()
     nivel = validar_nivel()
     poder = validar_poder()
+    #Verifica si el Pokemón existe
     existe = False
     for n in lst_pokemones:
         if nombre == n[0]:
             existe = True
+    #Si el Pokemón no existe y entrenador está vacío, significa que todavía no pidió el dato entrenador
     if entrenador == "" and not existe:
         entrenador = validar_entrenador()
     
     victorias = validar_victoria()
+    #Si no se registró un Pokemón, el estado es liberado
     if entrenador == "":
         estado = "Liberado"
     else:
@@ -156,6 +166,8 @@ def eliminar_pokemon(lst_pokemones):
         print("--")
         nombre = input("Ingrese nombre del Pokemón: ").strip()
 
+    #Asigna un índice al Pokemón, si lo encuentra. Si no lo encuentra, es que no existe
+    #También revisa si hay más de un Pokemón
     coincide = 0
     indice = -1
     i = 0
