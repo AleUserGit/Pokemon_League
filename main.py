@@ -21,13 +21,14 @@ def opciones_menu():
     print(Fore.GREEN + "4. Informe General – Visualización de los datos")
     print(Fore.GREEN + "5. Reporte Estadístico General")
     print(Fore.GREEN + "6. Reporte por Tipo de Pokémon")
-    print(Fore.GREEN + "7. Reporte Competitivo")
-    print(Fore.GREEN + "8. Salir")
+    print(Fore.GREEN + "7. Reporte Tipo vs Estado")
+    print(Fore.GREEN + "8. Reporte Competitivo")
+    print(Fore.GREEN + "9. Salir")
        
 def ingresar_opcion():
     opcion= input("Seleccione una opción: ").strip()
     #guarda el rango para que las opciones fuera de 1 y 8 no sean validas
-    while not opcion.isdigit() or (int(opcion) < 1 or int(opcion) > 8):
+    while not opcion.isdigit() or (int(opcion) < 1 or int(opcion) > 9):
                 print(Fore.RED + "Error: opción no válida. Inténtelo de nuevo")
                 opcion= input("Seleccione otra opcion: ").strip()
     opcion = int(opcion)
@@ -39,7 +40,7 @@ def main():
     opciones_menu()
     opcion = ingresar_opcion()
 
-    while opcion != 8:
+    while opcion != 9:
         
         #anlisis de opcion
         if opcion == 1:
@@ -72,11 +73,18 @@ def main():
              print(Fore.GREEN + "REPORTE POR TIPO DE POKÉMON")
              print("")
              reporte_por_tipo(lst_pokemones)
-
+        
         elif opcion == 7:
+             print(Fore.GREEN + "REPORTE TIPO VS ESTADO")
+             print("")
+             reporte_matriz(lst_pokemones)
+
+        elif opcion == 8:
              print(Fore.GREEN + "REPORTE COMPETITIVO")
              print("")
              reporte_competitivo(lst_pokemones)   
+
+        
  
         print("")
         opciones_menu()

@@ -93,18 +93,18 @@ def validar_victoria():
     #Valida que sea un número
     while not victorias.isdigit():
         print("")
-        print(Fore.RED + "Error: Se requiere un número mayor a cero")
+        print(Fore.RED + "Error: Se requiere un número entero mayor a cero")
         print("--")
         victorias = input("Ingrese el número de victorias del Pokemón: ").strip()
     victorias = int(victorias)
     return victorias
 
 def validar_estado():
-    estado_valido = ["Disponible", "Entrenamiento", "Lesionado", "Liberado"]
-    print("Los estados disponibles son:", estado_valido)
+    estados = ["Disponible", "Entrenamiento", "Lesionado", "Liberado"]
+    print("Los estados disponibles son:", estados)
     print("")
     estado = input("Ingrese el estado del Pokemón: ").strip().capitalize()
-    while estado not in estado_valido:
+    while estado not in estados:
         print("")
         print(Fore.RED + "Error: estado no válido")
         print("--")
@@ -223,7 +223,7 @@ def eliminar_pokemon(lst_pokemones):
                     indice = i
                 i += 1
 
-        #Repite el proceso de vir si es Liberado
+        #Repite el proceso de verificar si es Liberado
         if lst_pokemones[indice][6] == "Liberado":
             pokemon = lst_pokemones[indice]
             mostrar_pokemon(pokemon)
@@ -682,7 +682,7 @@ def reporte_competitivo(lst_pokemones):
     nvl_prom = promedio(suma_nvl, cant_pokemon)
     poder_prom = promedio(suma_poder, cant_pokemon)
 
-    
+
     print(f"{'Nombre':<15}{'Tipo':<15}{'Nivel':<15}{'Poder':<15}{'Entrenador':<15}{'Victorias':<15}")
     for p in lst_pokemones:
         if p[2] >= nvl_prom and p[3] >= poder_prom and p[6] == "Disponible":
