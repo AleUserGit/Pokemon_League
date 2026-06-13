@@ -1,11 +1,10 @@
 from funciones import registrar_pokemon, eliminar_pokemon, modificar_pokemon, informe_general
 from funciones import reporte_estadistico, reporte_matriz
-from funciones import reporte_estadistico, reporte_matriz
 from listas import cargar_pokemones
 from colorama import init, Fore
 init(autoreset= True)
 
-
+#Funciones de menú: Emi y Lola
 def opciones_menu():
     ancho= 60
     titulo= "SISTEMA DE GESTIÓN: POKÉTRAINER LEAGUE"
@@ -19,7 +18,8 @@ def opciones_menu():
     print(Fore.GREEN + "3. Modificar atributos del Pokémon (Modificación)")
     print(Fore.GREEN + "4. Informe General – Visualización de los datos")
     print(Fore.GREEN + "5. Salir")
-    
+
+#Funciones de menú: Emi y Lola    
 def ingresar_opcion():
     opcion= input("Seleccione una opción: ").strip()
     while not opcion.isdigit() or (int(opcion) < 1 or int(opcion) > 5):
@@ -28,7 +28,7 @@ def ingresar_opcion():
     opcion = int(opcion)
     return opcion
 
-
+#Función main: Emi y Lola
 def main():   
     lst_pokemones = cargar_pokemones()
     opciones_menu()
