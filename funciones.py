@@ -1,30 +1,5 @@
 from colorama import init, Fore
 
-
-#Funciones de menú : Emilia y Lola
-def opciones_menu():
-    ancho= 60
-    titulo= "SISTEMA DE GESTIÓN: POKÉTRAINER LEAGUE"
-    espacios= (ancho - len(titulo))//2
-    print("=" * ancho)
-    print(espacios * " " + titulo + espacios * " ")
-    print("=" * ancho)
-    
-    print(Fore.GREEN + "1. Registrar un Pokémon (Alta)")
-    print(Fore.GREEN + "2. Eliminar un Pokémon (Baja)")
-    print(Fore.GREEN + "3. Modificar atributos del Pokémon (Modificación)")
-    print(Fore.GREEN + "4. Informe General – Visualización de los datos")
-    print(Fore.GREEN + "5. Salir")
-    
-def ingresar_opcion():
-    opcion= input("Seleccione una opción: ").strip()
-    while not opcion.isdigit() or (int(opcion) < 1 or int(opcion) > 5):
-                print(Fore.RED + "Error: opción no válida. Inténtelo de nuevo")
-                opcion= input("Seleccione otra opcion: ").strip()
-    opcion = int(opcion)
-    return opcion
-
-
 #Funciones de validación : Alejo
 def validar_nombre(lst_pokemones):
     nombre = input("Ingrese nombre del Pokemón: ").strip().capitalize()
@@ -53,7 +28,7 @@ def validar_tipo():
     tipo = input("Ingrese el tipo del Pokemón: ").strip().capitalize()
     while tipo not in tipos:
         print("")
-        print("Error: tipo no válido")
+        print( Fore.RED + "Error: tipo no válido")
         print("--")
         tipo = input("Ingrese el tipo del Pokemón: ").strip().capitalize()
     return tipo
