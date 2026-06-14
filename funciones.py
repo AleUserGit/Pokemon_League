@@ -123,6 +123,7 @@ def mostrar_pokemon(pokemon):
         f"{'Victorias':<15}"
         f"{'Estado':<15}")
     print("")
+    # Imprime los datos almacenados en la lista
     print(f"{pokemon[0]:<15}"
         f"{pokemon[1]:<15}"
         f"{pokemon[2]:<15}"
@@ -412,27 +413,32 @@ def modificar_pokemon(lst_pokemones):
 
 #Función Ordenar los pokemones : Male
 def ordenar_pokemones(lst_pokemones):
-
+    #Recorre la lista tantas veces como sus elementos, menos uno
     for i in range(len(lst_pokemones)-1):
-
+        #compara elementos adyacentes, reduciendo el rango en cada iteración
         for j in range(len(lst_pokemones)-1-i):
 
+            #Extrae el poder y el nombre del pokemon actual y el siguiente para comparar
             poder_actual = lst_pokemones[j][3]
             poder_siguiente = lst_pokemones[j+1][3]
 
             nombre_actual = lst_pokemones[j][0]
             nombre_siguiente = lst_pokemones[j+1][0]
 
+            #Ordena por poder de mayor a menor
             if poder_actual < poder_siguiente:
 
+                #Intercambia las posiciones usando una variable auxiliar
                 aux = lst_pokemones[j]
                 lst_pokemones[j] = lst_pokemones[j+1]
                 lst_pokemones[j+1] = aux
 
+            #Si el poder es el mismo, ordenar por nombre de la A a la Z
             elif poder_actual == poder_siguiente:
 
                 if nombre_actual > nombre_siguiente:
 
+                    #Intercambio de posiciones si el nombre actual va después alfabéticamente
                     aux = lst_pokemones[j]
                     lst_pokemones[j] = lst_pokemones[j+1]
                     lst_pokemones[j+1] = aux
