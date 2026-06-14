@@ -210,7 +210,7 @@ def eliminar_pokemon(lst_pokemones):
         indice = -1
         i = 0
         for p in lst_pokemones:
-            if p[0].capitalize() == nombre.capitalize() and p[4].capitalize() == entrenador.capitalize():
+            if p[0].capitalize() == nombre.capitalize() and p[4].lower() == entrenador.lower():
                indice = i
             i += 1
 
@@ -220,7 +220,7 @@ def eliminar_pokemon(lst_pokemones):
             entrenador = validar_entrenador()
             i = 0
             for p in lst_pokemones:
-                if p[0].capitalize() == nombre.capitalize() and p[4].capitalize() == entrenador.capitalize():
+                if p[0].capitalize() == nombre.capitalize() and p[4].lower() == entrenador.lower():
                     indice = i
                 i += 1
 
@@ -302,6 +302,18 @@ def modificar_pokemon(lst_pokemones):
                     lst_pokemones[indice][3] = poder
                 elif cambiar == "Entrenador":
                     entrenador = validar_entrenador()
+                    repite = False
+                    for p in lst_pokemones:
+                        if mod_pokemon.capitalize() == p[0] and entrenador.lower() == p[4].lower():
+                            print(f"El Pokemón {mod_pokemon} ya tiene asignado al entrenador {entrenador}")
+                            repite = True
+                    while repite:
+                        entrenador = validar_entrenador()
+                        repite = False
+                        for p in lst_pokemones:
+                            if mod_pokemon.capitalize() == p[0] and entrenador.lower() == p[4].lower():
+                                print(f"El Pokemón {mod_pokemon} ya tiene asignado al entrenador {entrenador}")
+                                repite = True
                     lst_pokemones[indice][4] = entrenador
                 elif cambiar == "Victorias":
                     victorias = validar_victoria()
@@ -336,7 +348,7 @@ def modificar_pokemon(lst_pokemones):
         indice = -1
         i = 0
         for p in lst_pokemones:
-            if p[0].capitalize() == mod_pokemon.capitalize() and p[4].capitalize() == entrenador.capitalize():
+            if p[0].capitalize() == mod_pokemon.capitalize() and p[4].lower() == entrenador.lower():
                indice = i
             i += 1
         
@@ -346,7 +358,7 @@ def modificar_pokemon(lst_pokemones):
             entrenador = validar_entrenador()
             i = 0
             for p in lst_pokemones:
-                if p[0].capitalize() == mod_pokemon.capitalize() and p[4].capitalize() == entrenador.capitalize():
+                if p[0].capitalize() == mod_pokemon.capitalize() and p[4].lower() == entrenador.lower():
                     indice = i
                 i += 1
         
@@ -386,6 +398,18 @@ def modificar_pokemon(lst_pokemones):
                     lst_pokemones[indice][3] = poder
                 elif cambiar == "Entrenador":
                     entrenador = validar_entrenador()
+                    repite = False
+                    for p in lst_pokemones:
+                        if mod_pokemon.capitalize() == p[0] and entrenador.lower() == p[4].lower():
+                            print(f"El Pokemón {mod_pokemon} ya tiene asignado al entrenador {entrenador}")
+                            repite = True
+                    while repite:
+                        entrenador = validar_entrenador()
+                        repite = False
+                        for p in lst_pokemones:
+                            if mod_pokemon.capitalize() == p[0] and entrenador.lower() == p[4].lower():
+                                print(f"El Pokemón {mod_pokemon} ya tiene asignado al entrenador {entrenador}")
+                                repite = True
                     lst_pokemones[indice][4] = entrenador
                 elif cambiar == "Victorias":
                     victorias = validar_victoria()

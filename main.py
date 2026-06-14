@@ -44,7 +44,7 @@ def main():
         
         #anlisis de opcion
         if opcion == 1:
-            print(Fore.GREEN + "REGISTRAR POKEMON" + Fore.RESET)
+            print(Fore.GREEN + "REGISTRAR POKEMON")
             print("")
             registrar_pokemon(lst_pokemones)       
 
