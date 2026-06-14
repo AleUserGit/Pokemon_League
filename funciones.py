@@ -93,18 +93,18 @@ def validar_victoria():
     #Valida que sea un número
     while not victorias.isdigit():
         print("")
-        print(Fore.RED + "Error: Se requiere un número mayor a cero")
+        print(Fore.RED + "Error: Se requiere un número entero mayor a cero")
         print("--")
         victorias = input("Ingrese el número de victorias del Pokemón: ").strip()
     victorias = int(victorias)
     return victorias
 
 def validar_estado():
-    estado_valido = ["Disponible", "Entrenamiento", "Lesionado", "Liberado"]
-    print("Los estados disponibles son:", estado_valido)
+    estados = ["Disponible", "Entrenamiento", "Lesionado", "Liberado"]
+    print("Los estados disponibles son:", estados)
     print("")
     estado = input("Ingrese el estado del Pokemón: ").strip().capitalize()
-    while estado not in estado_valido:
+    while estado not in estados:
         print("")
         print(Fore.RED + "Error: estado no válido")
         print("--")
@@ -123,6 +123,7 @@ def mostrar_pokemon(pokemon):
         f"{'Victorias':<15}"
         f"{'Estado':<15}")
     print("")
+    # Imprime los datos almacenados en la lista
     print(f"{pokemon[0]:<15}"
         f"{pokemon[1]:<15}"
         f"{pokemon[2]:<15}"
@@ -209,7 +210,7 @@ def eliminar_pokemon(lst_pokemones):
         indice = -1
         i = 0
         for p in lst_pokemones:
-            if p[0].capitalize() == nombre.capitalize() and p[4].capitalize() == entrenador.capitalize():
+            if p[0].capitalize() == nombre.capitalize() and p[4].lower() == entrenador.lower():
                indice = i
             i += 1
 
@@ -219,11 +220,11 @@ def eliminar_pokemon(lst_pokemones):
             entrenador = validar_entrenador()
             i = 0
             for p in lst_pokemones:
-                if p[0].capitalize() == nombre.capitalize() and p[4].capitalize() == entrenador.capitalize():
+                if p[0].capitalize() == nombre.capitalize() and p[4].lower() == entrenador.lower():
                     indice = i
                 i += 1
 
-        #Repite el proceso de vir si es Liberado
+        #Repite el proceso de verificar si es Liberado
         if lst_pokemones[indice][6] == "Liberado":
             pokemon = lst_pokemones[indice]
             mostrar_pokemon(pokemon)
@@ -301,6 +302,18 @@ def modificar_pokemon(lst_pokemones):
                     lst_pokemones[indice][3] = poder
                 elif cambiar == "Entrenador":
                     entrenador = validar_entrenador()
+                    repite = False
+                    for p in lst_pokemones:
+                        if mod_pokemon.capitalize() == p[0] and entrenador.lower() == p[4].lower():
+                            print(f"El Pokemón {mod_pokemon} ya tiene asignado al entrenador {entrenador}")
+                            repite = True
+                    while repite:
+                        entrenador = validar_entrenador()
+                        repite = False
+                        for p in lst_pokemones:
+                            if mod_pokemon.capitalize() == p[0] and entrenador.lower() == p[4].lower():
+                                print(f"El Pokemón {mod_pokemon} ya tiene asignado al entrenador {entrenador}")
+                                repite = True
                     lst_pokemones[indice][4] = entrenador
                 elif cambiar == "Victorias":
                     victorias = validar_victoria()
@@ -335,7 +348,7 @@ def modificar_pokemon(lst_pokemones):
         indice = -1
         i = 0
         for p in lst_pokemones:
-            if p[0].capitalize() == mod_pokemon.capitalize() and p[4].capitalize() == entrenador.capitalize():
+            if p[0].capitalize() == mod_pokemon.capitalize() and p[4].lower() == entrenador.lower():
                indice = i
             i += 1
         
@@ -345,7 +358,7 @@ def modificar_pokemon(lst_pokemones):
             entrenador = validar_entrenador()
             i = 0
             for p in lst_pokemones:
-                if p[0].capitalize() == mod_pokemon.capitalize() and p[4].capitalize() == entrenador.capitalize():
+                if p[0].capitalize() == mod_pokemon.capitalize() and p[4].lower() == entrenador.lower():
                     indice = i
                 i += 1
         
@@ -385,6 +398,18 @@ def modificar_pokemon(lst_pokemones):
                     lst_pokemones[indice][3] = poder
                 elif cambiar == "Entrenador":
                     entrenador = validar_entrenador()
+                    repite = False
+                    for p in lst_pokemones:
+                        if mod_pokemon.capitalize() == p[0] and entrenador.lower() == p[4].lower():
+                            print(f"El Pokemón {mod_pokemon} ya tiene asignado al entrenador {entrenador}")
+                            repite = True
+                    while repite:
+                        entrenador = validar_entrenador()
+                        repite = False
+                        for p in lst_pokemones:
+                            if mod_pokemon.capitalize() == p[0] and entrenador.lower() == p[4].lower():
+                                print(f"El Pokemón {mod_pokemon} ya tiene asignado al entrenador {entrenador}")
+                                repite = True
                     lst_pokemones[indice][4] = entrenador
                 elif cambiar == "Victorias":
                     victorias = validar_victoria()
@@ -412,27 +437,32 @@ def modificar_pokemon(lst_pokemones):
 
 #Función Ordenar los pokemones : Male
 def ordenar_pokemones(lst_pokemones):
-
+    #Recorre la lista tantas veces como sus elementos, menos uno
     for i in range(len(lst_pokemones)-1):
-
+        #compara elementos adyacentes, reduciendo el rango en cada iteración
         for j in range(len(lst_pokemones)-1-i):
 
+            #Extrae el poder y el nombre del pokemon actual y el siguiente para comparar
             poder_actual = lst_pokemones[j][3]
             poder_siguiente = lst_pokemones[j+1][3]
 
             nombre_actual = lst_pokemones[j][0]
             nombre_siguiente = lst_pokemones[j+1][0]
 
+            #Ordena por poder de mayor a menor
             if poder_actual < poder_siguiente:
 
+                #Intercambia las posiciones usando una variable auxiliar
                 aux = lst_pokemones[j]
                 lst_pokemones[j] = lst_pokemones[j+1]
                 lst_pokemones[j+1] = aux
 
+            #Si el poder es el mismo, ordenar por nombre de la A a la Z
             elif poder_actual == poder_siguiente:
 
                 if nombre_actual > nombre_siguiente:
 
+                    #Intercambio de posiciones si el nombre actual va después alfabéticamente
                     aux = lst_pokemones[j]
                     lst_pokemones[j] = lst_pokemones[j+1]
                     lst_pokemones[j+1] = aux
@@ -682,7 +712,7 @@ def reporte_competitivo(lst_pokemones):
     nvl_prom = promedio(suma_nvl, cant_pokemon)
     poder_prom = promedio(suma_poder, cant_pokemon)
 
-    
+
     print(f"{'Nombre':<15}{'Tipo':<15}{'Nivel':<15}{'Poder':<15}{'Entrenador':<15}{'Victorias':<15}")
     for p in lst_pokemones:
         if p[2] >= nvl_prom and p[3] >= poder_prom and p[6] == "Disponible":
